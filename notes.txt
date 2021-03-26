@@ -1,0 +1,11 @@
+change colour theme to lighter red (done) (tested)
+check out flutter-grid-view for popular courses full screen (done but can be improved) (tested)
+change text part of logo (done) (tested)
+add youtube video in app (not working)
+add functionality to drawer (done) (tested)
+
+
+implement share button on tutorial screen
+align images optionslist and selector to start at centre
+try and put video inside app
+improve sidebar
