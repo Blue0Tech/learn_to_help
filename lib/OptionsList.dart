@@ -2,19 +2,18 @@ import 'package:flutter/material.dart';
 
 import 'AboutScreen.dart';
 import 'AccountScreen.dart';
+import 'AllCategoriesScreen.dart';
 import 'itemModel.dart';
 import 'FadeAnimation.dart';
 
 class OptionsList extends StatelessWidget {
+  PageController _pageController = PageController(initialPage: 1,viewportFraction: 0.6);
   @override
   Widget build(BuildContext context) {
     return FadeAnimation(1.1,Container(
       height: 90.0,
-      child: ListView.builder(
-        padding: EdgeInsets.symmetric(
-          horizontal: 30.0,
-
-        ),
+      child: PageView.builder(
+        controller: _pageController,
         scrollDirection: Axis.horizontal,
         itemCount: labels.length,
         itemBuilder: (BuildContext context, int index) {
@@ -47,10 +46,13 @@ class OptionsList extends StatelessWidget {
                 child: RawMaterialButton(
                   onPressed: () {
                     if(labels[index]=='Your account') {
-                      Navigator.push(context,MaterialPageRoute(builder: (context)=>AccountScreen()));
+                      // Navigator.push(context,MaterialPageRoute(builder: (context)=>AccountScreen()));
                     }
                     if(labels[index]=='About us') {
                       Navigator.push(context,MaterialPageRoute(builder: (context)=>AboutScreen()));
+                    }
+                    if(labels[index]=='All categories') {
+                      Navigator.push(context,MaterialPageRoute(builder: (context)=>AllCategoriesScreen()));
                     }
                   },
                   child: Text(

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import 'VideoPlayer.dart';
+
 class TutorialScreenPlayVideo extends StatelessWidget {
   String videoUrl;
   TutorialScreenPlayVideo(this.videoUrl);
@@ -15,7 +17,8 @@ class TutorialScreenPlayVideo extends StatelessWidget {
           padding: EdgeInsets.all(10.0),
           elevation: 12.0,
           onPressed: () {
-            launch(this.videoUrl);
+            // launch(this.videoUrl);
+            Navigator.push(context,MaterialPageRoute(builder: (context) => VideoPlayer(videoUrl)));
           },
           shape: CircleBorder(),
           child: Icon(

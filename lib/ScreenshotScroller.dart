@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:infinity_page_view/infinity_page_view.dart';
 
 class ScreenshotScroller extends StatelessWidget {
   final List<String> images;
   ScreenshotScroller(this.images);
+  InfinityPageController _pageController = InfinityPageController(initialPage: 1, viewportFraction: 0.85);
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 180.0,
-      child: ListView.builder(
-        padding: EdgeInsets.symmetric(horizontal: 30.0),
+      child: InfinityPageView(
+        controller: _pageController,
         scrollDirection: Axis.horizontal,
         itemCount: images.length,
         itemBuilder: (BuildContext context, int index) {
           return Container(
             margin: EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
-            width: 280.0,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10.0),
                 boxShadow: [

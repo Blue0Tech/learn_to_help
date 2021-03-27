@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:wc_flutter_share/wc_flutter_share.dart';
+
 import 'TutorialScreenImagePreview.dart';
 import 'ExtraInfoTutorialScreen.dart';
 import 'ScreenshotScroller.dart';
@@ -60,7 +62,14 @@ class TutorialScreenState extends State<TutorialScreen> {
                 bottom: 10.0,
                 right: 40.0,
                 child: IconButton(
-                  onPressed: () => print('Share'),
+                  onPressed: () {
+                    WcFlutterShare.share(
+                      sharePopupTitle: 'Share',
+                      subject: 'Share Learn2Help',
+                      text: 'https://github.com/Blue0Tech/learn_to_help',
+                      mimeType: 'text/plain'
+                    );
+                  },
                   icon: Icon(Icons.share),
                   iconSize: 40.0,
                   color: Colors.red[500],

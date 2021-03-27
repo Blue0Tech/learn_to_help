@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'TutorialScreen.dart';
 import 'itemModel.dart';
 
 class PopularCoursesScreen extends StatelessWidget {
@@ -20,19 +20,32 @@ class PopularCoursesScreen extends StatelessWidget {
             ),
             itemCount: popular.length,
             itemBuilder: (BuildContext context, index) {
-              return Container(
-                alignment: Alignment.center,
-                child: Column(
-                  children: [
-                    Text(popularLabels[index],style: TextStyle(
-                      color: Colors.red,
-                      fontSize: 16.0,
-                      fontWeight: FontWeight.bold
-                    )),
-                    Image(
-                      image: AssetImage(popular[index]),
-                    )
-                  ],
+              return RawMaterialButton(
+                onPressed: () {
+                  if(popularLabels[index]=='Poisoning') {
+                    Navigator.push(context,MaterialPageRoute(builder: (context)=>TutorialScreen(tutorial: tutorials[2])));
+                  }
+                  if(popularLabels[index]=='Bleeding') {
+                    Navigator.push(context,MaterialPageRoute(builder: (context)=>TutorialScreen(tutorial: tutorials[1])));
+                  }
+                  if(popularLabels[index]=='CPR') {
+                    Navigator.push(context,MaterialPageRoute(builder: (context)=>TutorialScreen(tutorial: tutorials[0])));
+                  }
+                },
+                child: Container(
+                  alignment: Alignment.center,
+                  child: Column(
+                    children: [
+                      Text(popularLabels[index],style: TextStyle(
+                        color: Colors.red,
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.bold
+                      )),
+                      Image(
+                        image: AssetImage(popular[index]),
+                      )
+                    ],
+                  ),
                 ),
               );
             },

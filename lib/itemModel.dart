@@ -71,14 +71,26 @@ final List<String> important = [
   'assets/images/popular_poison.png'
 ];
 
+final List<String> all = [
+  'assets/images/popular_poison.png',
+  'assets/images/popular_bleeding.png',
+  'assets/images/popular_cpr.png'
+];
+
 final List<String> popularLabels = [
   'CPR',
-  'Poison',
+  'Poisoning',
   'Bleeding'
 ];
 
 final List<String> importantLabels = [
   'Bleeding',
   'CPR',
-  'Poison'
+  'Poisoning'
+];
+
+final List<String> allLabels = [
+  'Poisoning',
+  'Bleeding',
+  'CPR'
 ];

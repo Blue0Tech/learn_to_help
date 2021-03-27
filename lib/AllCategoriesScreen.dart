@@ -1,13 +1,14 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'TutorialScreen.dart';
 import 'itemModel.dart';
 
-class ImportantCoursesScreen extends StatelessWidget {
+class AllCategoriesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Important Courses'),
+        title: Text('All Categories'),
         backgroundColor: Colors.red[300],
       ),
       body: Container(
@@ -18,17 +19,17 @@ class ImportantCoursesScreen extends StatelessWidget {
                 maxCrossAxisExtent: 200.0,
                 childAspectRatio: 2/3
             ),
-            itemCount: popular.length,
+            itemCount: all.length,
             itemBuilder: (BuildContext context, index) {
               return RawMaterialButton(
                 onPressed: () {
-                  if(importantLabels[index]=='Poisoning') {
+                  if(allLabels[index]=='Poisoning') {
                     Navigator.push(context,MaterialPageRoute(builder: (context)=>TutorialScreen(tutorial: tutorials[2])));
                   }
-                  if(importantLabels[index]=='Bleeding') {
+                  if(allLabels[index]=='Bleeding') {
                     Navigator.push(context,MaterialPageRoute(builder: (context)=>TutorialScreen(tutorial: tutorials[1])));
                   }
-                  if(importantLabels[index]=='CPR') {
+                  if(allLabels[index]=='CPR') {
                     Navigator.push(context,MaterialPageRoute(builder: (context)=>TutorialScreen(tutorial: tutorials[0])));
                   }
                 },
@@ -36,13 +37,13 @@ class ImportantCoursesScreen extends StatelessWidget {
                   alignment: Alignment.center,
                   child: Column(
                     children: [
-                      Text(importantLabels[index],style: TextStyle(
-                        color: Colors.red,
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.bold
+                      Text(allLabels[index],style: TextStyle(
+                          color: Colors.red,
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.bold
                       )),
                       Image(
-                        image: AssetImage(important[index]),
+                        image: AssetImage(all[index]),
                       )
                     ],
                   ),

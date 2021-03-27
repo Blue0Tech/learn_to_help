@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'AboutScreen.dart';
 import 'AccountScreen.dart';
+import 'AllCategoriesScreen.dart';
 import 'ContentScroll.dart';
 import 'FadeAnimation.dart';
 import 'ImportantCoursesScreen.dart';
@@ -23,44 +24,50 @@ class LandingPageContent extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            DrawerHeader(
-              child: Column(
-                children: [
-                  Text('Options',style: TextStyle(
-                    color: Colors.black
-                  )),
-                  IconButton(
-                    icon: Icon(Icons.settings),
-                    iconSize: 75.0,
-                    onPressed: () {
-                      Navigator.pop(context);
-                      Navigator.push(context,MaterialPageRoute(builder: (context) => SettingsScreen()));
-                    },
+        child: Container(
+          color: Colors.white,
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: [
+              Container(
+                color: Colors.red[300],
+                child: DrawerHeader(
+                  child: Image(
+                    image: AssetImage('assets/Learn2Help_logo.png'),
                   )
-                ],
+                ),
               ),
-              decoration: BoxDecoration(
-                color: Colors.white
+              SizedBox(height: 30.0),
+              ListTile(
+                title: Text('Options'),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.push(context,MaterialPageRoute(builder: (context) => SettingsScreen()));
+                },
               ),
-            ),
-            ListTile(
-              title: Text('Your account'),
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.push(context,MaterialPageRoute(builder: (context) => AccountScreen()));
-              }
-            ),
-            ListTile(
-              title: Text('About us'),
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.push(context,MaterialPageRoute(builder: (context) => AboutScreen()));
-              },
-            )
-          ],
+              ListTile(
+                title: Text('All categories'),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.push(context,MaterialPageRoute(builder: (context) => AllCategoriesScreen()));
+                },
+              ),
+              ListTile(
+                title: Text('Your account'),
+                onTap: () {
+                  Navigator.pop(context);
+                  // Navigator.push(context,MaterialPageRoute(builder: (context) => AccountScreen()));
+                }
+              ),
+              ListTile(
+                title: Text('About us'),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.push(context,MaterialPageRoute(builder: (context) => AboutScreen()));
+                },
+              ),
+            ],
+          ),
         ),
       ),
       appBar: AppBar(

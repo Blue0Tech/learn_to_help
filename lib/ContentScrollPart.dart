@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'TutorialScreen.dart';
+import 'itemModel.dart';
 
 class ContentScrollPart extends StatelessWidget {
   final List<String> images;
@@ -17,25 +19,38 @@ class ContentScrollPart extends StatelessWidget {
         itemBuilder: (BuildContext context, int index) {
           return Stack(
             children: [
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
-                height: imageHeight,
-                width: imageWidth,
-                decoration: BoxDecoration(
+              RawMaterialButton(
+                onPressed: () {
+                  if(labels[index]=='Poisoning') {
+                    Navigator.push(context,MaterialPageRoute(builder: (context)=>TutorialScreen(tutorial: tutorials[2])));
+                  }
+                  if(labels[index]=='Bleeding') {
+                    Navigator.push(context,MaterialPageRoute(builder: (context)=>TutorialScreen(tutorial: tutorials[1])));
+                  }
+                  if(labels[index]=='CPR') {
+                    Navigator.push(context,MaterialPageRoute(builder: (context)=>TutorialScreen(tutorial: tutorials[0])));
+                  }
+                },
+                child: Container(
+                  margin: EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
+                  height: imageHeight,
+                  width: imageWidth,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10.0),
+                      boxShadow: [
+                        BoxShadow(
+                            color: Colors.black54,
+                            offset: Offset(0.0,4.0),
+                            blurRadius: 6.0
+                        )
+                      ]
+                  ),
+                  child: ClipRRect(
                     borderRadius: BorderRadius.circular(10.0),
-                    boxShadow: [
-                      BoxShadow(
-                          color: Colors.black54,
-                          offset: Offset(0.0,4.0),
-                          blurRadius: 6.0
-                      )
-                    ]
-                ),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(10.0),
-                  child: Image(
-                    image: AssetImage(images[index]),
-                    fit: BoxFit.cover,
+                    child: Image(
+                      image: AssetImage(images[index]),
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ),
