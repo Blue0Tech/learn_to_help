@@ -56,7 +56,7 @@ class LandingPageContent extends StatelessWidget {
                 title: Text('Your account'),
                 onTap: () {
                   Navigator.pop(context);
-                  // Navigator.push(context,MaterialPageRoute(builder: (context) => AccountScreen()));
+                  Navigator.push(context,MaterialPageRoute(builder: (context) => AccountScreen()));
                 }
               ),
               ListTile(
@@ -74,6 +74,7 @@ class LandingPageContent extends StatelessWidget {
           backgroundColor: Colors.red[300],
           elevation: 0.0,
           title: Image(
+            width: 150.0,
             image: AssetImage('assets/Learn2Help_logosmall.png'),
           ),
           // leading: IconButton(

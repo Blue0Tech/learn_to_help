@@ -57,7 +57,7 @@ class TutorialScreenState extends State<TutorialScreen> {
                   color: Colors.red[500],
                 ),
               ),
-              TutorialScreenPlayVideo(widget.tutorial.youtubeVideo),
+              TutorialScreenPlayVideo(widget.tutorial.youtubeVideo,widget.tutorial.paragraph),
               Positioned(
                 bottom: 10.0,
                 right: 40.0,

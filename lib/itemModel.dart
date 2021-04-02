@@ -4,13 +4,15 @@ class Tutorial {
   String description;
   List<String> screenshots;
   String youtubeVideo;
+  List<String> paragraph;
 
   Tutorial({
     this.imageUrl,
     this.title,
     this.description,
     this.screenshots,
-    this.youtubeVideo
+    this.youtubeVideo,
+    this.paragraph
   });
 }
 
@@ -25,7 +27,12 @@ final List<Tutorial> tutorials = [
       'assets/images/cpr_2.png',
       'assets/images/cpr_3.png',
     ],
-    youtubeVideo: 'https://www.youtube.com/watch?v=-NodDRTsV88'
+    youtubeVideo: 'https://www.youtube.com/watch?v=-NodDRTsV88',
+    paragraph: [
+      'Not many people know how to perform CPR, but an increasing number of people are dying from heart arrest.',
+      'By knowing how to perform CPR, you could save somebody\'s life.',
+      'CPR is extremely tiring, try to take turns with people when doing it.'
+    ]
   ),
   Tutorial(
     imageUrl: 'assets/images/bleeding.png',
@@ -37,7 +44,14 @@ final List<Tutorial> tutorials = [
       'assets/images/bleeding_2.png',
       'assets/images/bleeding_3.png',
     ],
-    youtubeVideo: 'https://www.youtube.com/watch?v=NxO5LvgqZe0'
+    youtubeVideo: 'https://www.youtube.com/watch?v=NxO5LvgqZe0',
+      paragraph: [
+        '• Severe bleeding can occur in many situations.',
+        '• It can happen when major blood vessels are punctured.',
+        '• If someone loses too much blood then their blood pressure will decrease.',
+        '• This can cause the person to go into shock.',
+        '• Eventually this could cause death, so it is important to act fast.'
+      ]
   ),
   Tutorial(
     imageUrl: 'assets/images/poison.png',
@@ -49,7 +63,13 @@ final List<Tutorial> tutorials = [
       'assets/images/poison_2.png',
       'assets/images/poison_3.png',
     ],
-    youtubeVideo: 'https://www.youtube.com/watch?v=b2ieb8BZJuY'
+    youtubeVideo: 'https://www.youtube.com/watch?v=b2ieb8BZJuY',
+    paragraph: [
+      '• Poisoning can happen for many reasons.',
+      '• For example from consuming or touching plants.',
+      '• It is important to get immediate medical care, as the poisoning may be more serious than you think.',
+      '• Always take precautions when going to areas, such as not eating or touching unknown plants.'
+    ]
   ),
 ];
 

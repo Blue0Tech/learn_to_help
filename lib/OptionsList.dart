@@ -46,7 +46,7 @@ class OptionsList extends StatelessWidget {
                 child: RawMaterialButton(
                   onPressed: () {
                     if(labels[index]=='Your account') {
-                      // Navigator.push(context,MaterialPageRoute(builder: (context)=>AccountScreen()));
+                      Navigator.push(context,MaterialPageRoute(builder: (context)=>AccountScreen()));
                     }
                     if(labels[index]=='About us') {
                       Navigator.push(context,MaterialPageRoute(builder: (context)=>AboutScreen()));

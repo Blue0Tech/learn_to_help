@@ -31,17 +31,6 @@ class LoginPage extends StatelessWidget {
               Expanded(
                 child: LoginPageContent()
               ),
-              FadeAnimation(1.2,Container(
-                // height: MediaQuery.of(context).size.height / 3,
-                height: 200.0,
-                width: 200.0,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage('assets/illustration.png'),
-                    fit: BoxFit.cover
-                  )
-                ),
-              ))
             ],
           ),
         ),

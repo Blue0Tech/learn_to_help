@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AboutScreen extends StatelessWidget {
   @override
@@ -28,7 +29,31 @@ class AboutScreen extends StatelessWidget {
                   image: AssetImage('assets/Learn2Help_logo.png'),
                 ),
                 SizedBox(height: 30.0),
-                Text('Learn2Help, preview')
+                Text('Version: 0.1, preview'),
+                SizedBox(height: 30.0),
+                Text('Submitted for 18u18 competition (WhiteHatJr)'),
+                SizedBox(height: 30.0),
+                InkWell(
+                  child: Text('This project on github', style:TextStyle(
+                    decoration: TextDecoration.underline,
+                    fontSize: 20.0,
+                    color: Colors.blue
+                  )),
+                  onTap: () {
+                    launch('https://github.com/Blue0Tech/learn_to_help');
+                  },
+                ),
+                SizedBox(height: 30.0),
+                InkWell(
+                  child: Text('Email me', style:TextStyle(
+                      decoration: TextDecoration.underline,
+                      fontSize: 20.0,
+                      color: Colors.blue
+                  )),
+                  onTap: () {
+                    launch('mailto:blue0techprogramming@gmail.com');
+                  },
+                ),
               ],
             ),
           ),

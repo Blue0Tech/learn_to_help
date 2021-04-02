@@ -2,3 +2,12 @@ implement share button on tutorial screen (done)
 align images optionslist and selector to start at centre (done)
 try and put video inside app (done)
 improve sidebar (done differently)
+
+keep small icon above login and signup text (done)
+reduce image size such that there is at least margin of 3 or 5 pixels above and below (done)
+implement quizzes
+add nice text below video about video, let it be at least 1 or 2 paragraphs long - make it relevant (allow vertical scrolling as well) (done)
+Put basic description of app in about us section and add contact (done)
+add input boxes and profile image in your account screen (done)
+
+urgent: profile and about screen - deadline: 1 or 2 days

@@ -14,14 +14,84 @@ class AccountScreen extends StatelessWidget {
           child: Center(
             child: Column(
               children: [
-                SizedBox(height: 50.0),
-                Text('Please sign in to edit your account',style: TextStyle(
-                  fontSize: 18.0,
-                  fontWeight: FontWeight.bold,
-                )),
-                SizedBox(height: 150.0),
                 Image(
-                  image: AssetImage('assets/Learn2Help_logo.png'),
+                  image: AssetImage('assets/illustration.png'),
+                  height: 250.0,
+                  width: 250.0,
+                ),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text('Name',style:TextStyle(
+                    fontSize: 15.0,
+                    fontWeight: FontWeight.w400,
+                    color: Colors.black87,
+                  )),
+                ),
+                TextField(
+                  decoration: InputDecoration(
+                    contentPadding: EdgeInsets.symmetric(vertical: 0.0, horizontal: 10),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.grey[400])
+                    ),
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.grey[400])
+                    )
+                  ),
+                  autocorrect: false,
+                ),
+                SizedBox(height: 30.0),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text('Email',style:TextStyle(
+                    fontSize: 15.0,
+                    fontWeight: FontWeight.w400,
+                    color: Colors.black87
+                  )),
+                ),
+                TextField(
+                  decoration: InputDecoration(
+                    contentPadding: EdgeInsets.symmetric(vertical: 0.0, horizontal: 10),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.grey[400])
+                    ),
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.grey[400])
+                    )
+                  ),
+                  autocorrect: false,
+                ),
+                SizedBox(height: 30.0),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text('Password',style:TextStyle(
+                    fontSize: 15.0,
+                    fontWeight: FontWeight.w400,
+                    color: Colors.black87
+                  )),
+                ),
+                TextField(
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    contentPadding: EdgeInsets.symmetric(vertical: 0.0, horizontal: 10),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.grey[400])
+                    ),
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.grey[400])
+                    )
+                  ),
+                  autocorrect: false,
+                ),
+                SizedBox(height: 30.0),
+                RawMaterialButton(
+                  child: Container(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text('Save information'),
+                      )
+                  ),
+                  fillColor: Colors.red[300],
+                  onPressed: () {},
                 )
               ],
             ),

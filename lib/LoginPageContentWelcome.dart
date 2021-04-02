@@ -8,6 +8,11 @@ class LoginPageContentWelcome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
+        Image(
+          image: AssetImage('assets/Learn2Help_logo.png'),
+          height: 70.0,
+          width: 90.0,
+        ),
         FadeAnimation(1,Text('Login',style: TextStyle(
             fontSize: 30,
             fontWeight: FontWeight.bold

@@ -5,7 +5,8 @@ import 'VideoPlayer.dart';
 
 class TutorialScreenPlayVideo extends StatelessWidget {
   String videoUrl;
-  TutorialScreenPlayVideo(this.videoUrl);
+  List<String> paragraph;
+  TutorialScreenPlayVideo(this.videoUrl,this.paragraph);
   @override
   Widget build(BuildContext context) {
     return Positioned.fill(
@@ -18,7 +19,7 @@ class TutorialScreenPlayVideo extends StatelessWidget {
           elevation: 12.0,
           onPressed: () {
             // launch(this.videoUrl);
-            Navigator.push(context,MaterialPageRoute(builder: (context) => VideoPlayer(videoUrl)));
+            Navigator.push(context,MaterialPageRoute(builder: (context) => VideoPlayer(videoUrl,paragraph)));
           },
           shape: CircleBorder(),
           child: Icon(
