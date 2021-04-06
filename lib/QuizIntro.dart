@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 
+import 'QuizResults.dart';
+
 class QuizIntro extends StatelessWidget {
   List quiz;
-  QuizIntro(this.quiz);
+  List answers;
+  QuizIntro(quiz) {
+    this.quiz = quiz;
+    this.answers = List(quiz.length);
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,7 +52,9 @@ class QuizIntro extends StatelessWidget {
                                         color: Colors.white
                                       )),
                                     ),
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      this.answers[index] = index2;
+                                    },
                                     fillColor: Colors.red[300],
                                   ),
                                   SizedBox(height: 10.0)
@@ -70,18 +78,14 @@ class QuizIntro extends StatelessWidget {
                 child: Text('Submit answers'),
               ),
               onPressed: () {
-                return AlertDialog(
-                  title: Text('Results submitted'),
-                  content: Text('Your results will be returned shortly. You can continue using the app by going back.'),
-                  actions: [
-                    TextButton(
-                      child: Text('OK'),
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
-                    )
-                  ],
-                );
+                print(this.answers);
+                bool correct = true;
+                for(int i = 0; i<this.quiz.length; i++) {
+                  if(answers[i]!=quiz[i][2]) {
+                    correct = false;
+                  }
+                }
+                Navigator.push(context,MaterialPageRoute(builder: (context) => QuizResults(correct)));
               },
             )
           ],
