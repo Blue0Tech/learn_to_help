@@ -57,7 +57,7 @@ class TutorialScreenState extends State<TutorialScreen> {
                   color: Colors.red[500],
                 ),
               ),
-              TutorialScreenPlayVideo(widget.tutorial.youtubeVideo,widget.tutorial.paragraph),
+              TutorialScreenPlayVideo(widget.tutorial.youtubeVideo,widget.tutorial.paragraph,widget.tutorial.title),
               Positioned(
                 bottom: 10.0,
                 right: 40.0,
@@ -101,7 +101,7 @@ class TutorialScreenState extends State<TutorialScreen> {
                 )),
               ),
               SizedBox(height: 15.0),
-              TutorialScreenQuizStart(),
+              TutorialScreenQuizStart(widget.tutorial.quiz),
               SizedBox(height: 15.0),
               Text('Images', style: TextStyle(
                 fontSize: 25.0,

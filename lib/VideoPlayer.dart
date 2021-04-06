@@ -4,13 +4,14 @@ import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 class VideoPlayer extends StatelessWidget {
   final String videoUrl;
   final List<String> paragraph;
-  VideoPlayer(this.videoUrl,this.paragraph);
+  String title;
+  VideoPlayer(this.videoUrl,this.paragraph,this.title);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.red[300],
-        title: Text('Video')
+        title: Text(title)
       ),
       body: Container(
         child: Column(
@@ -33,11 +34,16 @@ class VideoPlayer extends StatelessWidget {
               child: ListView.builder(
                 itemCount: paragraph.length,
                 itemBuilder: (context, index) {
-                  return Text(paragraph[index],style: TextStyle(
-                    fontSize: 20.0,
-                    color: Colors.black54,
-                    fontWeight: FontWeight.bold
-                  ));
+                  return Column(
+                    children: [
+                      Text(paragraph[index],style: TextStyle(
+                        fontSize: 20.0,
+                        color: Colors.black54,
+                        fontWeight: FontWeight.bold
+                      )),
+                      SizedBox(height: 20.0)
+                    ],
+                  );
                 },
               ),
             )
