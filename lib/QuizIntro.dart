@@ -1,3 +1,4 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
 import 'QuizResults.dart';
@@ -5,9 +6,11 @@ import 'QuizResults.dart';
 class QuizIntro extends StatelessWidget {
   List quiz;
   List answers;
-  QuizIntro(quiz) {
+  String id;
+  QuizIntro(quiz,id) {
     this.quiz = quiz;
     this.answers = List(quiz.length);
+    this.id = id;
   }
   @override
   Widget build(BuildContext context) {
@@ -55,7 +58,7 @@ class QuizIntro extends StatelessWidget {
                                     onPressed: () {
                                       this.answers[index] = index2;
                                     },
-                                    fillColor: Colors.red[300],
+                                    fillColor: this.answers[index]==index2 ? Colors.green[300] : Colors.red[300],
                                   ),
                                   SizedBox(height: 10.0)
                                 ],
@@ -84,6 +87,17 @@ class QuizIntro extends StatelessWidget {
                   if(answers[i]!=quiz[i][2]) {
                     correct = false;
                   }
+                }
+                if(correct==true) {
+                  var ref = FirebaseDatabase.instance.reference();
+                  var currentNum = 0;
+                  ref.child('global').child(id).once().then((value) {
+                    currentNum = value.value['pass_count'];
+                  });
+                  currentNum+=1;
+                  ref.child('global').child(id).push().set({
+                    "pass_count" : currentNum
+                  });
                 }
                 Navigator.push(context,MaterialPageRoute(builder: (context) => QuizResults(correct)));
               },

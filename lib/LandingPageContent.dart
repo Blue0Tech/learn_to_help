@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'AboutScreen.dart';
@@ -5,6 +6,7 @@ import 'AccountScreen.dart';
 import 'AllCategoriesScreen.dart';
 import 'ContentScroll.dart';
 import 'FadeAnimation.dart';
+import 'HomePage.dart';
 import 'ImportantCoursesScreen.dart';
 import 'ItemCover.dart';
 import 'ItemTitle.dart';
@@ -32,11 +34,19 @@ class LandingPageContent extends StatelessWidget {
               Container(
                 color: Colors.red[300],
                 child: DrawerHeader(
-                  child: Image(
-                    image: AssetImage('assets/Learn2Help_logo.png'),
+                  child: Container(
+                    child: Image(
+                      image: AssetImage('assets/Learn2Help_logo.png'),
+                    ),
                   )
                 ),
               ),
+              SizedBox(height: 30.0),
+              Center(child: Text(FirebaseAuth.instance.currentUser.displayName,style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+                fontSize: 20.0
+              ),)),
               SizedBox(height: 30.0),
               ListTile(
                 title: Text('Options'),
@@ -66,6 +76,13 @@ class LandingPageContent extends StatelessWidget {
                   Navigator.push(context,MaterialPageRoute(builder: (context) => AboutScreen()));
                 },
               ),
+              ListTile(
+                title: Text('Sign out'),
+                onTap: () {
+                  FirebaseAuth.instance.signOut();
+                  Navigator.push(context,MaterialPageRoute(builder: (context) => HomePage()));
+                },
+              )
             ],
           ),
         ),
@@ -77,22 +94,15 @@ class LandingPageContent extends StatelessWidget {
             width: 150.0,
             image: AssetImage('assets/Learn2Help_logosmall.png'),
           ),
-          // leading: IconButton(
-          //   icon: Icon(Icons.menu),
-          //   onPressed: () => print('Menu'),
-          //   padding: EdgeInsets.only(left: 20.0),
-          //   iconSize: 25.0,
-          //   color: Colors.black,
-          // ),
-          actions: [
-            IconButton(
-              icon: Icon(Icons.search),
-              onPressed: () => print('Search'),
-              padding: EdgeInsets.only(right: 20.0),
-              iconSize: 25.0,
-              color: Colors.white,
-            )
-          ],
+          // actions: [
+          //   IconButton(
+          //     icon: Icon(Icons.search),
+          //     onPressed: () => print('Search'),
+          //     padding: EdgeInsets.only(right: 20.0),
+          //     iconSize: 25.0,
+          //     color: Colors.white,
+          //   )
+          // ],
           centerTitle: true
       ),
       body: ListView(

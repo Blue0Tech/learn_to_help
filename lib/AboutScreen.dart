@@ -54,6 +54,8 @@ class AboutScreen extends StatelessWidget {
                     launch('mailto:blue0techprogramming@gmail.com');
                   },
                 ),
+                SizedBox(height: 30.0),
+                Text('More courses to be added!')
               ],
             ),
           ),

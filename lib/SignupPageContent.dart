@@ -10,12 +10,14 @@ import 'SignupPageContentWelcome.dart';
 class SignupPageContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    return ListView(
       children: <Widget>[
         SignupPageContentWelcome(),
+        SizedBox(height: 35.0),
         SignupPageContentFields(),
+        SizedBox(height: 35.0),
         SignupPageContentLogin(),
+        SizedBox(height: 35.0),
         FadeAnimation(1.6,Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[

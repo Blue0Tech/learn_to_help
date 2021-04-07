@@ -1,8 +1,12 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'FadeAnimation.dart';
 import 'LandingPage.dart';
+import 'global.dart' as global;
+import 'SignupError.dart';
+import 'PassMatchError.dart';
 
 class SignupPageContentLogin extends StatelessWidget {
   @override
@@ -13,11 +17,30 @@ class SignupPageContentLogin extends StatelessWidget {
           child : MaterialButton(
             minWidth: double.infinity,
             height: 60.0,
-            onPressed: () {
-              while(Navigator.canPop(context)) {
-                Navigator.removeRouteBelow(context,ModalRoute.of(context));
+            onPressed: () async {
+              if(global.pass==global.confirmPass) {
+                bool success = true;
+                try {
+                  global.userCredential =
+                  await FirebaseAuth.instance.createUserWithEmailAndPassword(
+                      email: global.email, password: global.pass);
+                } on Exception catch (e) {
+                  success = false;
+                  print(e);
+                }
+                if (success == true) {
+                  global.pass = '';
+                  global.confirmPass = '';
+                  global.email = '';
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => LandingPage()));
+                } else {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => SignupError()));
+                }
+              } else {
+                Navigator.push(context,MaterialPageRoute(builder: (context) => PassMatchError()));
               }
-              Navigator.push(context,MaterialPageRoute(builder: (context) => LandingPage()));
             },
             color: Colors.greenAccent,
             elevation: 0.0,

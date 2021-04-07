@@ -6,6 +6,7 @@ class Tutorial {
   String youtubeVideo;
   List<String> paragraph;
   List quiz;
+  String id;
 
   Tutorial({
     this.imageUrl,
@@ -14,12 +15,14 @@ class Tutorial {
     this.screenshots,
     this.youtubeVideo,
     this.paragraph,
-    this.quiz
+    this.quiz,
+    this.id
   });
 }
 
 final List<Tutorial> tutorials = [
   Tutorial(
+    id: 'cpr',
     imageUrl: 'assets/images/CPR.png',
     title: 'Performing CPR',
     description:
@@ -78,6 +81,7 @@ final List<Tutorial> tutorials = [
     ]
   ),
   Tutorial(
+    id: 'bleeding',
     imageUrl: 'assets/images/bleeding.png',
     title: 'Stopping bleeding',
     description:
@@ -167,6 +171,7 @@ final List<Tutorial> tutorials = [
     ]
   ),
   Tutorial(
+    id: 'poisoning',
     imageUrl: 'assets/images/poison.png',
     title: 'Helping someone poisoned',
     description:

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'FadeAnimation.dart';
+import 'global.dart' as global;
 
 class LoginPageContentFields extends StatelessWidget {
   @override
@@ -37,6 +38,15 @@ class LoginPageContentFields extends StatelessWidget {
                   borderSide: BorderSide(color: Colors.grey[400])
               )
           ),
+          autocorrect: false,
+          onChanged: (value) {
+            if(label=='Email') {
+              global.email = value;
+            }
+            if(label=='Password') {
+              global.pass = value;
+            }
+          },
         ),
         SizedBox(height: 30.0,)
       ],

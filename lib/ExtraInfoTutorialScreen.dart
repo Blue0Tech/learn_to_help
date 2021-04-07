@@ -1,6 +1,24 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
+
 class ExtraInfoTutorialScreen extends StatelessWidget {
+  String id;
+  int hits;
+  int passCount;
+  int length;
+  ExtraInfoTutorialScreen(id) {
+    this.id = id;
+    print(id);
+    this.getData();
+  }
+  getData() async {
+    var ref = FirebaseDatabase.instance.reference();
+    var snapshot = await ref.child('global').child(id).once();
+    this.hits = snapshot.value['hits'];
+    this.passCount = snapshot.value['pass_count'];
+    this.length = snapshot.value['length'];
+  }
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -16,7 +34,7 @@ class ExtraInfoTutorialScreen extends StatelessWidget {
               ),
             ),
             Text(
-              '561',
+              (hits??0).toString(),
               style: TextStyle(
                   fontSize: 20.0,
                   fontWeight: FontWeight.w600
@@ -27,14 +45,14 @@ class ExtraInfoTutorialScreen extends StatelessWidget {
         Column(
           children: [
             Text(
-              'Pass rate',
+              'Pass count',
               style: TextStyle(
                   color: Colors.black54,
                   fontSize: 16.0
               ),
             ),
             Text(
-              '90%',
+              (passCount??0).toString(),
               style: TextStyle(
                   fontSize: 20.0,
                   fontWeight: FontWeight.w600
@@ -52,7 +70,7 @@ class ExtraInfoTutorialScreen extends StatelessWidget {
               ),
             ),
             Text(
-              '20 min',
+              '${length??5} min',
               style: TextStyle(
                   fontSize: 20.0,
                   fontWeight: FontWeight.w600

@@ -36,28 +36,28 @@ class TutorialScreenState extends State<TutorialScreen> {
                     iconSize: 30.0,
                     color: Colors.red[300],
                   ),
-                  IconButton(
-                    padding: EdgeInsets.only(right: 30.0),
-                    onPressed: () {
-                      //
-                    },
-                    icon: Icon(Icons.favorite_border),
-                    iconSize: 30.0,
-                    color: Colors.red[300],
-                  )
+                  // IconButton(
+                  //   padding: EdgeInsets.only(right: 30.0),
+                  //   onPressed: () {
+                  //     //
+                  //   },
+                  //   icon: Icon(Icons.favorite_border),
+                  //   iconSize: 30.0,
+                  //   color: Colors.red[300],
+                  // )
                 ]
               ),
-              Positioned(
-                bottom: 10.0,
-                left: 40.0,
-                child: IconButton(
-                  onPressed: () => print('Add to My List'),
-                  icon: Icon(Icons.add),
-                  iconSize: 40.0,
-                  color: Colors.red[500],
-                ),
-              ),
-              TutorialScreenPlayVideo(widget.tutorial.youtubeVideo,widget.tutorial.paragraph,widget.tutorial.title),
+              // Positioned(
+              //   bottom: 10.0,
+              //   left: 40.0,
+              //   child: IconButton(
+              //     onPressed: () => print('Add to My List'),
+              //     icon: Icon(Icons.add),
+              //     iconSize: 40.0,
+              //     color: Colors.red[500],
+              //   ),
+              // ),
+              TutorialScreenPlayVideo(widget.tutorial.youtubeVideo,widget.tutorial.paragraph,widget.tutorial.title,widget.tutorial.id),
               Positioned(
                 bottom: 10.0,
                 right: 40.0,
@@ -89,9 +89,8 @@ class TutorialScreenState extends State<TutorialScreen> {
                 )),
               ),
               SizedBox(height: 8.0),
-              Text('⭐ ⭐ ⭐ ⭐ ⭐'),
               SizedBox(height: 8.0),
-              ExtraInfoTutorialScreen(),
+              ExtraInfoTutorialScreen(widget.tutorial.id),
               SizedBox(height: 15.0),
               Padding(
                 padding: const EdgeInsets.all(12.0),
@@ -101,7 +100,7 @@ class TutorialScreenState extends State<TutorialScreen> {
                 )),
               ),
               SizedBox(height: 15.0),
-              TutorialScreenQuizStart(widget.tutorial.quiz),
+              TutorialScreenQuizStart(widget.tutorial.quiz,widget.tutorial.id),
               SizedBox(height: 15.0),
               Text('Images', style: TextStyle(
                 fontSize: 25.0,
