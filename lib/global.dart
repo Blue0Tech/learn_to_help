@@ -8,3 +8,4 @@ String confirmPass = '';
 UserCredential userCredential;
 String displayName = '';
 var data;
+bool loggedIn;

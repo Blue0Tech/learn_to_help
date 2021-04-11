@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 import 'AppContainer.dart';
+import 'global.dart' as global;
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,7 +28,7 @@ class App extends StatelessWidget {
       future: this._initialization,
       builder: (context,snapshot) {
         if(snapshot.connectionState == ConnectionState.done) {
-          var loggedIn = false;
+          bool loggedIn = false;
           if(FirebaseAuth.instance.currentUser!=null) {
             loggedIn = true;
           }

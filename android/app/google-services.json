@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "890671274031",
+    "firebase_url": "https://learn2help-default-rtdb.europe-west1.firebasedatabase.app",
     "project_id": "learn2help",
     "storage_bucket": "learn2help.appspot.com"
   },
@@ -13,6 +14,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "890671274031-plnesp5od2umkge8stiiuk91998n3p4j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.blue0tech.learn_to_help",
+            "certificate_hash": "aa671837cfc718c2f51fc7ccb4165ad8f1f36ef3"
+          }
+        },
         {
           "client_id": "890671274031-cv4oqd8bhv3cq621bt6l9sh4t8tdji97.apps.googleusercontent.com",
           "client_type": 3
