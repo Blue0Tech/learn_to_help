@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'QuizResults.dart';
 
-class QuizIntro extends StatelessWidget {
+class QuizIntro extends StatefulWidget {
   List quiz;
   List answers;
   String id;
@@ -12,6 +12,12 @@ class QuizIntro extends StatelessWidget {
     this.answers = List(quiz.length);
     this.id = id;
   }
+
+  @override
+  _QuizIntroState createState() => _QuizIntroState();
+}
+
+class _QuizIntroState extends State<QuizIntro> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,11 +37,11 @@ class QuizIntro extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: ListView.builder(
-                  itemCount: quiz.length,
+                  itemCount: widget.quiz.length,
                   itemBuilder: (context,index) {
                     return Column(
                       children: [
-                        Text(quiz[index][0],textAlign: TextAlign.center,style: TextStyle(
+                        Text(widget.quiz[index][0],textAlign: TextAlign.center,style: TextStyle(
                           fontSize: 16.0,
                           fontWeight: FontWeight.bold,
                         )),
@@ -43,7 +49,7 @@ class QuizIntro extends StatelessWidget {
                         Container(
                           height: 300.0,
                           child: ListView.builder(
-                            itemCount: quiz[index][1].length,
+                            itemCount: widget.quiz[index][1].length,
                             physics: NeverScrollableScrollPhysics(),
                             itemBuilder: (context,index2) {
                               return Column(
@@ -51,14 +57,14 @@ class QuizIntro extends StatelessWidget {
                                   RawMaterialButton(
                                     child: Padding(
                                       padding: const EdgeInsets.all(8.0),
-                                      child: Text(quiz[index][1][index2],textAlign: TextAlign.center,style: TextStyle(
+                                      child: Text(widget.quiz[index][1][index2],textAlign: TextAlign.center,style: TextStyle(
                                         color: Colors.white
                                       )),
                                     ),
                                     onPressed: () {
-                                      this.answers[index] = index2;
+                                      this.widget.answers[index] = index2;
                                     },
-                                    fillColor: this.answers[index]==index2 ? Colors.green[300] : Colors.red[300],
+                                    fillColor: this.widget.answers[index]==index2 ? Colors.green[300] : Colors.red[300], // problem is this is running only on component load
                                   ),
                                   SizedBox(height: 10.0)
                                 ],
@@ -81,21 +87,21 @@ class QuizIntro extends StatelessWidget {
                 child: Text('Submit answers'),
               ),
               onPressed: () {
-                print(this.answers);
+                print(this.widget.answers);
                 bool correct = true;
-                for(int i = 0; i<this.quiz.length; i++) {
-                  if(answers[i]!=quiz[i][2]) {
+                for(int i = 0; i<this.widget.quiz.length; i++) {
+                  if(widget.answers[i]!=widget.quiz[i][2]) {
                     correct = false;
                   }
                 }
                 if(correct==true) {
                   var ref = FirebaseDatabase.instance.reference();
                   var currentNum = 0;
-                  ref.child('global').child(id).once().then((value) {
+                  ref.child('global').child(widget.id).once().then((value) {
                     currentNum = value.value['pass_count'];
                   });
                   currentNum+=1;
-                  ref.child('global').child(id).push().set({
+                  ref.child('global').child(widget.id).push().set({
                     "pass_count" : currentNum
                   });
                 }

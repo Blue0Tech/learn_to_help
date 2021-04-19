@@ -251,6 +251,66 @@ final List<Tutorial> tutorials = [
       ]
     ]
   ),
+  Tutorial(
+    id: 'burns',
+    imageUrl: 'assets/images/burns.png',
+    title: 'Treating burns',
+    description: 'Burns are very common injuries, and almost everyone has been burnt before. It is very important to know how to handle burns as their is a risk of burns all around us.',
+    screenshots: [
+      'assets/images/burns_1.png',
+      'assets/images/burns_2.png',
+      'assets/images/burns_3.png'
+    ],
+    youtubeVideo: 'https://www.youtube.com/watch?v=Yy3QAIAzKtE',
+    paragraph: [
+      '• Burns are very commonplace nowadays.',
+      '• They can range from non serious burns to life-threatening burns caused by fires.',
+      '• After the burning has stopped, for non-serious burns, you should always run the burn under cold water.',
+      '• If necessary, visit a hospital for medical help.'
+    ],
+    quiz: [
+      [
+        'Which of these should you always receive external medical care for?',
+        [
+          'A chemical burn',
+          'A burn from an iron',
+          'A burn from boiling water',
+          'A burn from hot steam'
+        ],
+        0
+      ],
+      [
+        'When should first aid be used to treat a minor burn or scald?',
+        [
+          'As soon as possible',
+          'After 10 minutes',
+          'After a few hours',
+          'After a day'
+        ],
+        0
+      ],
+      [
+        'How long should you typically run a tap over a burn for?',
+        [
+          '5 minutes',
+          '10 minutes',
+          '20 minutes',
+          'an hour'
+        ],
+        2
+      ],
+      [
+        'Which of these should you do?',
+        [
+          'Cover the burn with a blanket',
+          'Run an ice cold tap over the burn',
+          'Apply cream over the burn',
+          'Keep the person warm'
+        ],
+        3
+      ]
+    ]
+  )
 ];
 
 final List<String> labels = [
@@ -260,9 +320,9 @@ final List<String> labels = [
 ];
 
 final List<String> popular = [
-  'assets/images/popular_cpr.png',
   'assets/images/popular_poison.png',
-  'assets/images/popular_bleeding.png'
+  'assets/images/popular_bleeding.png',
+  'assets/images/popular_burns.png',
 ];
 
 final List<String> important = [
@@ -274,13 +334,14 @@ final List<String> important = [
 final List<String> all = [
   'assets/images/popular_poison.png',
   'assets/images/popular_bleeding.png',
-  'assets/images/popular_cpr.png'
+  'assets/images/popular_cpr.png',
+  'assets/images/popular_burns.png'
 ];
 
 final List<String> popularLabels = [
-  'CPR',
   'Poisoning',
-  'Bleeding'
+  'Bleeding',
+  'Burns'
 ];
 
 final List<String> importantLabels = [
@@ -292,5 +353,6 @@ final List<String> importantLabels = [
 final List<String> allLabels = [
   'Poisoning',
   'Bleeding',
-  'CPR'
+  'CPR',
+  'Burns'
 ];

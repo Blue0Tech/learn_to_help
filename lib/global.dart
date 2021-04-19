@@ -9,3 +9,4 @@ UserCredential userCredential;
 String displayName = '';
 var data;
 bool loggedIn;
+var image;

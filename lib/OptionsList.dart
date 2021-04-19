@@ -54,6 +54,7 @@ class OptionsList extends StatelessWidget {
                     if(labels[index]=='All categories') {
                       Navigator.push(context,MaterialPageRoute(builder: (context)=>AllCategoriesScreen()));
                     }
+
                   },
                   child: Text(
                     labels[index].toUpperCase(),

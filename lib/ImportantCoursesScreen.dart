@@ -31,6 +31,9 @@ class ImportantCoursesScreen extends StatelessWidget {
                   if(importantLabels[index]=='CPR') {
                     Navigator.push(context,MaterialPageRoute(builder: (context)=>TutorialScreen(tutorial: tutorials[0])));
                   }
+                  if(allLabels[index]=='Burns') {
+                    Navigator.push(context,MaterialPageRoute(builder: (context)=>TutorialScreen(tutorial: tutorials[3])));
+                  }
                 },
                 child: Container(
                   alignment: Alignment.center,

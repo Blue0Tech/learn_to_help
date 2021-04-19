@@ -35,9 +35,10 @@ class LandingPageContent extends StatelessWidget {
                 color: Colors.red[300],
                 child: DrawerHeader(
                   child: Container(
-                    child: Image(
-                      image: AssetImage('assets/Learn2Help_logo.png'),
-                    ),
+                    // child: Image(
+                    //   image: AssetImage('assets/Learn2Help_logo.png'),
+                    // ),
+                    child: Image.network(FirebaseAuth.instance.currentUser.photoURL)
                   )
                 ),
               ),
