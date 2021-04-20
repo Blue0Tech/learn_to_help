@@ -35,6 +35,9 @@ class AllCategoriesScreen extends StatelessWidget {
                   if(allLabels[index]=='Burns') {
                     Navigator.push(context,MaterialPageRoute(builder: (context)=>TutorialScreen(tutorial: tutorials[3])));
                   }
+                  if(allLabels[index]=='Choking') {
+                    Navigator.push(context,MaterialPageRoute(builder: (context)=>TutorialScreen(tutorial: tutorials[4])));
+                  }
                 },
                 child: Container(
                   alignment: Alignment.center,

@@ -310,6 +310,65 @@ final List<Tutorial> tutorials = [
         3
       ]
     ]
+  ),
+  Tutorial(
+    id: 'choking',
+    imageUrl: 'assets/images/choking.png',
+    title: 'Helping someone choking',
+    description: 'Children can choke to curiousity, and people can choke due to not being careful. This can happen to anybody, and can quickly become dangerous., so you must know what to do - acting fast is very important in this situation.',
+    screenshots: [
+      'assets/images/choking_1.png',
+      'assets/images/choking_2.png',
+      'assets/images/choking_3.png'
+    ],
+    youtubeVideo: 'https://www.youtube.com/watch?v=PA9hpOnvtCk',
+    paragraph: [
+      '• Choking is very common and not always serious.',
+      '• However, if somebody cannot stop choking in a few seconds, it\'s likely they need help.',
+      '• You have to apply force if somebody is choking, even if it hurts them.',
+      '• This is to force the object out.'
+    ],
+    quiz: [
+      [
+        'If somebody is choking for certain, what do you do first?',
+        [
+          'Slap their back',
+          'Ask them to cough it out',
+          'Push their diaphragm in',
+          'Try and push it out by strangling them'
+        ],
+        1
+      ],
+      [
+        'When slapping whatever they are choking on out, where do you hit?',
+        [
+          'Between their shoulder blades',
+          'On their ribs',
+          'On the lower back'
+        ],
+        0
+      ],
+      [
+        'How many times should you attempt to squeeze the object out?',
+        [
+          '2 times',
+          '3 times',
+          'Up to 5 times',
+          'Up to 10 times'
+        ],
+        2
+      ],
+      [
+        'What should you do if they are still choking or not responding?',
+        [
+          'Call emergency services',
+          'Call emergency services and keep repeating back blows',
+          'Keep repeating abdominal thrusts',
+          'Call emergency services and keep repeating back blows and abdominal thrusts'
+        ],
+        3
+      ]
+    ]
   )
 ];
 
@@ -328,14 +387,15 @@ final List<String> popular = [
 final List<String> important = [
   'assets/images/popular_bleeding.png',
   'assets/images/popular_cpr.png',
-  'assets/images/popular_poison.png'
+  'assets/images/popular_choking.png'
 ];
 
 final List<String> all = [
   'assets/images/popular_poison.png',
   'assets/images/popular_bleeding.png',
   'assets/images/popular_cpr.png',
-  'assets/images/popular_burns.png'
+  'assets/images/popular_burns.png',
+  'assets/images/popular_choking.png'
 ];
 
 final List<String> popularLabels = [
@@ -347,7 +407,7 @@ final List<String> popularLabels = [
 final List<String> importantLabels = [
   'Bleeding',
   'CPR',
-  'Poisoning'
+  'Choking'
 ];
 
 final List<String> allLabels = [

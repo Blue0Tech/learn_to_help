@@ -17,7 +17,7 @@ class ItemTitle extends StatelessWidget {
         child: Text(
           tutorials[index].title.toUpperCase(),
           style: TextStyle(
-              color: Colors.white,
+              color: Colors.green,
               fontSize: 20.0,
               fontWeight: FontWeight.bold
           ),

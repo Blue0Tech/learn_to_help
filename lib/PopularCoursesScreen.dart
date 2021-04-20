@@ -34,6 +34,9 @@ class PopularCoursesScreen extends StatelessWidget {
                   if(popularLabels[index]=='Burns') {
                     Navigator.push(context,MaterialPageRoute(builder: (context)=>TutorialScreen(tutorial: tutorials[3])));
                   }
+                  if(popularLabels[index]=='Choking') {
+                    Navigator.push(context,MaterialPageRoute(builder: (context)=>TutorialScreen(tutorial: tutorials[4])));
+                  }
                 },
                 child: Container(
                   alignment: Alignment.center,
