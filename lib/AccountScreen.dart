@@ -31,6 +31,7 @@ class AccountScreen extends StatelessWidget {
                       child: Image.network(FirebaseAuth.instance.currentUser.photoURL),
                       width: 100.0
                     ),
+                    clipBehavior: Clip.hardEdge,
                   ),
                 ),
                 SizedBox(height: 30.0),

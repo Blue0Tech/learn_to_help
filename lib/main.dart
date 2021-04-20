@@ -7,10 +7,19 @@ import 'package:flutter/widgets.dart';
 
 import 'AppContainer.dart';
 import 'global.dart' as global;
+import 'ProjectOptions.dart' as options; // added to .gitignore for security reasons
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  var _initialization = Firebase.initializeApp();
+  var _initialization = Firebase.initializeApp(
+    options: FirebaseOptions(
+      appId: options.appId,
+      apiKey: options.apiKey,
+      messagingSenderId: options.messagingSenderId,
+      projectId: options.projectId,
+      databaseURL: options.databaseUrl
+    )
+  );
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
