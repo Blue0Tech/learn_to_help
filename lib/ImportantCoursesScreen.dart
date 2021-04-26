@@ -44,8 +44,10 @@ class ImportantCoursesScreen extends StatelessWidget {
                         fontSize: 16.0,
                         fontWeight: FontWeight.bold
                       )),
-                      Image(
-                        image: AssetImage(important[index]),
+                      Expanded(
+                        child: Image(
+                          image: AssetImage(important[index]),
+                        ),
                       )
                     ],
                   ),

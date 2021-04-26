@@ -7,9 +7,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
+import 'ChangePassSuccess.dart';
+import 'CustomError.dart';
 import 'global.dart' as global;
 
-class AccountScreen extends StatelessWidget {
+class AccountScreen extends StatefulWidget {
+  @override
+  _AccountScreenState createState() => _AccountScreenState();
+}
+
+class _AccountScreenState extends State<AccountScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +31,7 @@ class AccountScreen extends StatelessWidget {
             child: ListView(
               children: [
                 SizedBox(height: 30.0),
-                CircleAvatar(
+                global.imageLoaded?CircleAvatar(
                   radius: 50.0,
                   child: ClipOval(
                     child: SizedBox(
@@ -33,7 +40,7 @@ class AccountScreen extends StatelessWidget {
                     ),
                     clipBehavior: Clip.hardEdge,
                   ),
-                ),
+                ):Text('Loading profile picture',textAlign: TextAlign.center),
                 SizedBox(height: 30.0),
                 RawMaterialButton(
                   child: Container(
@@ -48,7 +55,11 @@ class AccountScreen extends StatelessWidget {
                     await this.getImage();
                     var url = await this.uploadPic();
                     if(url!=null) {
-                      FirebaseAuth.instance.currentUser.updateProfile(photoURL: url);
+                      global.imageLoaded = false;
+                      setState(() {});
+                      await FirebaseAuth.instance.currentUser.updateProfile(photoURL: url);
+                      global.imageLoaded = true;
+                      setState(() {});
                     }
                   },
                   fillColor: Colors.red[300],
@@ -141,12 +152,16 @@ class AccountScreen extends StatelessWidget {
                       )
                   ),
                   onPressed: () {
-                    FirebaseAuth.instance.currentUser.updatePassword(global.pass);
+                    FirebaseAuth.instance.currentUser.updatePassword(global.pass).then((value) {
+                      Navigator.push(context,MaterialPageRoute(builder: (context) => ChangePassSuccess()));
+                    }).catchError((e) {
+                      Navigator.push(context,MaterialPageRoute(builder: (context) => CustomError(e.message)));
+                    });
                   },
                   fillColor: Colors.red[300],
                 ),
                 SizedBox(height: 10.0),
-                Text('Note: password must be at least 6 characters',textAlign: TextAlign.center)
+                // Text('Note: password must be at least 6 characters',textAlign: TextAlign.center)
               ],
             ),
           ),
@@ -154,9 +169,11 @@ class AccountScreen extends StatelessWidget {
       ),
     );
   }
+
   getImage() async {
     global.image = await ImagePicker.pickImage(source: ImageSource.gallery);
   }
+
   uploadPic() async {
     var path = global.image.path;
     var image = global.image;

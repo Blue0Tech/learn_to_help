@@ -10,3 +10,4 @@ String displayName = '';
 var data;
 bool loggedIn;
 var image;
+var imageLoaded = true;

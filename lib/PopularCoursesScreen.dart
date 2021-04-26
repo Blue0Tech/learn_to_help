@@ -47,8 +47,10 @@ class PopularCoursesScreen extends StatelessWidget {
                         fontSize: 16.0,
                         fontWeight: FontWeight.bold
                       )),
-                      Image(
-                        image: AssetImage(popular[index]),
+                      Expanded(
+                        child: Image(
+                          image: AssetImage(popular[index]),
+                        ),
                       )
                     ],
                   ),

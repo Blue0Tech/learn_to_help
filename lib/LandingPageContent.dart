@@ -11,6 +11,7 @@ import 'ImportantCoursesScreen.dart';
 import 'ItemCover.dart';
 import 'ItemTitle.dart';
 import 'PopularCoursesScreen.dart';
+import 'ProfilePictureLandingPage.dart';
 import 'SettingsScreen.dart';
 import 'TutorialScreen.dart';
 import 'OptionsList.dart';
@@ -38,7 +39,7 @@ class LandingPageContent extends StatelessWidget {
                     // child: Image(
                     //   image: AssetImage('assets/Learn2Help_logo.png'),
                     // ),
-                    child: Image.network(FirebaseAuth.instance.currentUser.photoURL)
+                    child: ProfilePictureLandingPage()
                   )
                 ),
               ),

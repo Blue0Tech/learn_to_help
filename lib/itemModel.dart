@@ -414,5 +414,6 @@ final List<String> allLabels = [
   'Poisoning',
   'Bleeding',
   'CPR',
-  'Burns'
+  'Burns',
+  'Choking'
 ];

@@ -48,8 +48,10 @@ class AllCategoriesScreen extends StatelessWidget {
                           fontSize: 16.0,
                           fontWeight: FontWeight.bold
                       )),
-                      Image(
-                        image: AssetImage(all[index]),
+                      Expanded(
+                        child: Image(
+                          image: AssetImage(all[index])
+                        ),
                       )
                     ],
                   ),
