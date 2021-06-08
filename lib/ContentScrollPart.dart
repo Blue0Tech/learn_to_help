@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'ThemeDecider.dart';
 import 'TutorialScreen.dart';
 import 'itemModel.dart';
+import 'global.dart' as global;
 
 class ContentScrollPart extends StatelessWidget {
   final List<String> images;
@@ -67,7 +69,7 @@ class ContentScrollPart extends StatelessWidget {
                     labels != null ? labels[index] : '',
                   style: TextStyle(
                     fontSize: 20.0,
-                    color: Colors.red[300],
+                    color: ThemeDecider.decide()=='red' ? Colors.red[300] : Colors.green[300],
                     shadows: [
                       Shadow(
                         blurRadius: 2.0

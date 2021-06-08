@@ -13,9 +13,11 @@ import 'ItemTitle.dart';
 import 'PopularCoursesScreen.dart';
 import 'ProfilePictureLandingPage.dart';
 import 'SettingsScreen.dart';
+import 'ThemeDecider.dart';
 import 'TutorialScreen.dart';
 import 'OptionsList.dart';
 import 'itemModel.dart';
+import 'global.dart' as global;
 
 class LandingPageContent extends StatelessWidget {
   PageController pageController;
@@ -33,7 +35,7 @@ class LandingPageContent extends StatelessWidget {
             padding: EdgeInsets.zero,
             children: [
               Container(
-                color: Colors.red[300],
+                color: ThemeDecider.decide()=='red' ? Colors.red[300] : Colors.green[300],
                 child: DrawerHeader(
                   child: Container(
                     // child: Image(
@@ -90,7 +92,7 @@ class LandingPageContent extends StatelessWidget {
         ),
       ),
       appBar: AppBar(
-          backgroundColor: Colors.red[300],
+          backgroundColor: ThemeDecider.decide()=='red' ? Colors.red[300] : Colors.green[300],
           elevation: 0.0,
           title: Image(
             width: 150.0,

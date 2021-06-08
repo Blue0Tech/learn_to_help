@@ -11,3 +11,4 @@ var data;
 bool loggedIn;
 var image;
 var imageLoaded = true;
+var theme = 'green';

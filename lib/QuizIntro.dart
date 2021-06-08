@@ -2,6 +2,8 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
 import 'QuizResults.dart';
+import 'ThemeDecider.dart';
+import 'global.dart' as global;
 
 class QuizIntro extends StatefulWidget {
   List quiz;
@@ -23,16 +25,24 @@ class _QuizIntroState extends State<QuizIntro> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Quiz'),
-        backgroundColor: Colors.red[300],
+        backgroundColor: ThemeDecider.decide()=='red' ? Colors.red[300] : Colors.green[300],
       ),
       body: Container(
         margin: EdgeInsets.all(20.0),
         child: Column(
           children: [
             Container(
-              height: 600.0,
+              height: 500.0,
               decoration: BoxDecoration(
-                border: Border.all(color: Colors.black54)
+                border: Border.all(color: Colors.black54),
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    Colors.white,
+                    Colors.grey
+                  ]
+                )
               ),
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -47,7 +57,7 @@ class _QuizIntroState extends State<QuizIntro> {
                         )),
                         SizedBox(height: 12.0),
                         Container(
-                          height: 300.0,
+                          height: 280.0,
                           child: ListView.builder(
                             itemCount: widget.quiz[index][1].length,
                             physics: NeverScrollableScrollPhysics(),
@@ -62,26 +72,25 @@ class _QuizIntroState extends State<QuizIntro> {
                                       )),
                                     ),
                                     onPressed: () {
-                                      this.widget.answers[index] = index2;
+                                      setState((){this.widget.answers[index] = index2;});
                                     },
                                     fillColor: this.widget.answers[index]==index2 ? Colors.green[300] : Colors.red[300], // problem is this is running only on component load
                                   ),
-                                  SizedBox(height: 10.0)
+                                  SizedBox(height: 2.0)
                                 ],
                               );
                             },
                           ),
                         ),
-                        SizedBox(height: 20.0)
                       ],
                     );
                   },
                 ),
               ),
             ),
-            SizedBox(height: 30.0),
+            SizedBox(height: 15.0),
             RawMaterialButton(
-              fillColor: Colors.red[200],
+              fillColor: ThemeDecider.decide()=='red' ? Colors.red[200] : Colors.green[200],
               child: Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Text('Submit answers'),
@@ -107,7 +116,8 @@ class _QuizIntroState extends State<QuizIntro> {
                 }
                 Navigator.push(context,MaterialPageRoute(builder: (context) => QuizResults(correct)));
               },
-            )
+            ),
+            Text('Scroll down for more questions')
           ],
         ),
       ),

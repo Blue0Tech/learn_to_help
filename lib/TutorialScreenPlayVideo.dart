@@ -2,7 +2,9 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import 'ThemeDecider.dart';
 import 'VideoPlayer.dart';
+import 'global.dart' as global;
 
 class TutorialScreenPlayVideo extends StatelessWidget {
   String videoUrl;
@@ -36,7 +38,7 @@ class TutorialScreenPlayVideo extends StatelessWidget {
           child: Icon(
             Icons.play_arrow,
             size: 60.0,
-            color: Colors.red[300],
+            color: ThemeDecider.decide()=='red' ? Colors.red[300] : Colors.green[300],
           ),
         ),
       ),

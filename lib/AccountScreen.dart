@@ -9,6 +9,7 @@ import 'package:image_picker/image_picker.dart';
 
 import 'ChangePassSuccess.dart';
 import 'CustomError.dart';
+import 'ThemeDecider.dart';
 import 'global.dart' as global;
 
 class AccountScreen extends StatefulWidget {
@@ -22,7 +23,7 @@ class _AccountScreenState extends State<AccountScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Account'),
-        backgroundColor: Colors.red[300],
+        backgroundColor: ThemeDecider.decide()=='red' ? Colors.red[300] : Colors.green[300],
       ),
       body: Container(
         child: Padding(
@@ -62,7 +63,7 @@ class _AccountScreenState extends State<AccountScreen> {
                       setState(() {});
                     }
                   },
-                  fillColor: Colors.red[300],
+                  fillColor: ThemeDecider.decide()=='red' ? Colors.red[300] : Colors.green[300],
                 ),
                 SizedBox(height: 30.0),
                 Align(
@@ -102,7 +103,7 @@ class _AccountScreenState extends State<AccountScreen> {
                   onPressed: () {
                   FirebaseAuth.instance.currentUser.updateProfile(displayName: global.displayName);
                   },
-                  fillColor: Colors.red[300],
+                  fillColor: ThemeDecider.decide()=='red' ? Colors.red[300] : Colors.green[300],
                 ),
                 SizedBox(height: 30.0),
                 Center(
@@ -158,7 +159,7 @@ class _AccountScreenState extends State<AccountScreen> {
                       Navigator.push(context,MaterialPageRoute(builder: (context) => CustomError(e.message)));
                     });
                   },
-                  fillColor: Colors.red[300],
+                  fillColor: ThemeDecider.decide()=='red' ? Colors.red[300] : Colors.green[300],
                 ),
                 SizedBox(height: 10.0),
                 // Text('Note: password must be at least 6 characters',textAlign: TextAlign.center)

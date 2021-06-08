@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'AboutScreen.dart';
 import 'AccountScreen.dart';
 import 'AllCategoriesScreen.dart';
+import 'ThemeDecider.dart';
 import 'itemModel.dart';
 import 'FadeAnimation.dart';
+import 'global.dart' as global;
 
 class OptionsList extends StatelessWidget {
   PageController _pageController = PageController(initialPage: 1,viewportFraction: 0.6);
@@ -30,7 +32,7 @@ class OptionsList extends StatelessWidget {
                 //       Color(0xFF9E1F28)
                 //     ]
                 // ),
-                color: Colors.red[300],
+                color: ThemeDecider.decide()=='red' ? Colors.red[300] : Colors.green[300],
                 boxShadow: [
                   BoxShadow(
                     color: Color(0xFF9E1F28),

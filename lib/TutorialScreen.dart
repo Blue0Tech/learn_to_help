@@ -2,12 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:wc_flutter_share/wc_flutter_share.dart';
 
+import 'ThemeDecider.dart';
 import 'TutorialScreenImagePreview.dart';
 import 'ExtraInfoTutorialScreen.dart';
 import 'ScreenshotScroller.dart';
 import 'TutorialScreenPlayVideo.dart';
 import 'TutorialScreenQuizStart.dart';
 import 'itemModel.dart';
+import 'global.dart' as global;
 
 class TutorialScreen extends StatefulWidget {
   final Tutorial tutorial;
@@ -34,29 +36,10 @@ class TutorialScreenState extends State<TutorialScreen> {
                     onPressed: () => Navigator.pop(context),
                     icon: Icon(Icons.arrow_back_ios),
                     iconSize: 30.0,
-                    color: Colors.red[300],
+                    color: ThemeDecider.decide()=='red' ? Colors.red[300] : Colors.green[300],
                   ),
-                  // IconButton(
-                  //   padding: EdgeInsets.only(right: 30.0),
-                  //   onPressed: () {
-                  //     //
-                  //   },
-                  //   icon: Icon(Icons.favorite_border),
-                  //   iconSize: 30.0,
-                  //   color: Colors.red[300],
-                  // )
                 ]
               ),
-              // Positioned(
-              //   bottom: 10.0,
-              //   left: 40.0,
-              //   child: IconButton(
-              //     onPressed: () => print('Add to My List'),
-              //     icon: Icon(Icons.add),
-              //     iconSize: 40.0,
-              //     color: Colors.red[500],
-              //   ),
-              // ),
               TutorialScreenPlayVideo(widget.tutorial.youtubeVideo,widget.tutorial.paragraph,widget.tutorial.title,widget.tutorial.id),
               Positioned(
                 bottom: 10.0,
@@ -72,7 +55,7 @@ class TutorialScreenState extends State<TutorialScreen> {
                   },
                   icon: Icon(Icons.share),
                   iconSize: 40.0,
-                  color: Colors.red[500],
+                  color: ThemeDecider.decide()=='red' ? Colors.red[500] : Colors.green[500],
                 )
               )
             ],

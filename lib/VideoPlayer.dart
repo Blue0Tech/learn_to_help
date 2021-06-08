@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import 'ThemeDecider.dart';
+import 'global.dart' as global;
 
 class VideoPlayer extends StatelessWidget {
   final String videoUrl;
@@ -10,7 +12,7 @@ class VideoPlayer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.red[300],
+        backgroundColor: ThemeDecider.decide()=='red' ? Colors.red[300] : Colors.green[300],
         title: Text(title)
       ),
       body: Container(

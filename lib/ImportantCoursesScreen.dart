@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'ThemeDecider.dart';
 import 'TutorialScreen.dart';
 import 'itemModel.dart';
+import 'global.dart' as global;
 
 class ImportantCoursesScreen extends StatelessWidget {
   @override
@@ -8,7 +10,7 @@ class ImportantCoursesScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Important Courses'),
-        backgroundColor: Colors.red[300],
+        backgroundColor: ThemeDecider.decide()=='red' ? Colors.red[300] : Colors.green[300],
       ),
       body: Container(
         child: Padding(
@@ -31,8 +33,8 @@ class ImportantCoursesScreen extends StatelessWidget {
                   if(importantLabels[index]=='CPR') {
                     Navigator.push(context,MaterialPageRoute(builder: (context)=>TutorialScreen(tutorial: tutorials[0])));
                   }
-                  if(allLabels[index]=='Burns') {
-                    Navigator.push(context,MaterialPageRoute(builder: (context)=>TutorialScreen(tutorial: tutorials[3])));
+                  if(importantLabels[index]=='Choking') {
+                    Navigator.push(context,MaterialPageRoute(builder: (context)=>TutorialScreen(tutorial: tutorials[4])));
                   }
                 },
                 child: Container(
@@ -40,7 +42,7 @@ class ImportantCoursesScreen extends StatelessWidget {
                   child: Column(
                     children: [
                       Text(importantLabels[index],style: TextStyle(
-                        color: Colors.red,
+                        color: ThemeDecider.decide()=='red' ? Colors.red : Colors.green,
                         fontSize: 16.0,
                         fontWeight: FontWeight.bold
                       )),

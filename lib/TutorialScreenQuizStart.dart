@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'QuizIntro.dart';
+import 'ThemeDecider.dart';
+import 'global.dart' as global;
 
 class TutorialScreenQuizStart extends StatelessWidget {
   final List quiz;
@@ -12,7 +14,7 @@ class TutorialScreenQuizStart extends StatelessWidget {
       width: 130.0,
       height: 50.0,
       child: RawMaterialButton(
-        fillColor: Colors.red[300],
+        fillColor: ThemeDecider.decide()=='red' ? Colors.red[300] : Colors.green[300],
         onPressed: () => Navigator.push(context,MaterialPageRoute(builder: (context)=>QuizIntro(quiz,id))),
         child: Text(
           'Start quiz',

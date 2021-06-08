@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "890671274031-9apiof6gu2bmqh4gb2j2kiirn0gej8kl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.blue0tech.learn_to_help",
+            "certificate_hash": "d1db0da0d2aee4f5a0b0a0ff9f7b68c27e87e1bc"
+          }
+        },
+        {
           "client_id": "890671274031-ac16gv8693b5rn2duvmh2gtc647fier4.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

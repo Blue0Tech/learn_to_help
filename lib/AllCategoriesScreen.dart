@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'ThemeDecider.dart';
 import 'TutorialScreen.dart';
 import 'itemModel.dart';
+import 'global.dart' as global;
 
 class AllCategoriesScreen extends StatelessWidget {
   @override
@@ -9,7 +11,7 @@ class AllCategoriesScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('All Categories'),
-        backgroundColor: Colors.red[300],
+        backgroundColor: ThemeDecider.decide()=='red' ? Colors.red[300] : Colors.green[300],
       ),
       body: Container(
         child: Padding(
@@ -44,7 +46,7 @@ class AllCategoriesScreen extends StatelessWidget {
                   child: Column(
                     children: [
                       Text(allLabels[index],style: TextStyle(
-                          color: Colors.red,
+                          color: ThemeDecider.decide()=='red' ? Colors.red : Colors.green,
                           fontSize: 16.0,
                           fontWeight: FontWeight.bold
                       )),
