@@ -9,7 +9,7 @@ class ProfilePictureLandingPage extends StatefulWidget {
 class PfpState extends State<ProfilePictureLandingPage> {
   @override
   Widget build(BuildContext context) {
-    return Image.network(FirebaseAuth.instance.currentUser.photoURL,loadingBuilder: (BuildContext context, Widget child, ImageChunkEvent loadingProgress) {
+    return Image.network(FirebaseAuth.instance.currentUser.photoURL ?? 'https://github.com/Blue0Tech/learn_to_help/raw/main/assets/Learn2Help_logo.png',loadingBuilder: (BuildContext context, Widget child, ImageChunkEvent loadingProgress) {
       if(loadingProgress==null) {
         return child;
       } else {

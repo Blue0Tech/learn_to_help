@@ -46,19 +46,19 @@ class LandingPageContent extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 30.0),
-              Center(child: Text(FirebaseAuth.instance.currentUser.displayName,style: TextStyle(
+              Center(child: Text(FirebaseAuth.instance.currentUser.displayName ?? '',style: TextStyle(
                 fontWeight: FontWeight.bold,
                 color: Colors.black,
                 fontSize: 20.0
               ),)),
               SizedBox(height: 30.0),
-              ListTile(
-                title: Text('Options'),
-                onTap: () {
-                  Navigator.pop(context);
-                  Navigator.push(context,MaterialPageRoute(builder: (context) => SettingsScreen()));
-                },
-              ),
+              // ListTile(
+              //   title: Text('Options'),
+              //   onTap: () {
+              //     Navigator.pop(context);
+              //     Navigator.push(context,MaterialPageRoute(builder: (context) => SettingsScreen()));
+              //   },
+              // ),
               ListTile(
                 title: Text('All categories'),
                 onTap: () {
@@ -122,12 +122,12 @@ class LandingPageContent extends StatelessWidget {
               },
             ),
           )),
-          OptionsList(),
+          FadeAnimation(1.1,OptionsList()),
           SizedBox(
             height: 20.0,
           ),
-          ContentScroll(images: popular, title: 'Popular courses', imageHeight: 250.0, imageWidth: 150.0,labels: popularLabels,newScreen: PopularCoursesScreen()),
-          ContentScroll(images: important, title: 'Important courses', imageHeight: 250.0, imageWidth: 150.0,labels: importantLabels,newScreen: ImportantCoursesScreen())
+          FadeAnimation(1.2,ContentScroll(images: popular, title: 'Popular courses', imageHeight: 250.0, imageWidth: 150.0,labels: popularLabels,newScreen: PopularCoursesScreen())),
+          FadeAnimation(1.3,ContentScroll(images: important, title: 'Important courses', imageHeight: 250.0, imageWidth: 150.0,labels: importantLabels,newScreen: ImportantCoursesScreen()))
         ],
       ),
     );

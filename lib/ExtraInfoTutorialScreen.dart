@@ -50,7 +50,7 @@ class _ExtraInfoTutorialScreenState extends State<ExtraInfoTutorialScreen> {
               ),
             ),
             Text(
-              (this.hits??0).toString(),
+              (this.hits??'?').toString(),
               style: TextStyle(
                   fontSize: 20.0,
                   fontWeight: FontWeight.w600
@@ -68,7 +68,7 @@ class _ExtraInfoTutorialScreenState extends State<ExtraInfoTutorialScreen> {
               ),
             ),
             Text(
-              '${this.length??5} min',
+              '${this.length??'?'} min',
               style: TextStyle(
                   fontSize: 20.0,
                   fontWeight: FontWeight.w600

@@ -8,13 +8,19 @@ import 'package:learn_to_help/ThemeDecider.dart';
 
 import 'AppContainer.dart';
 import 'global.dart' as global;
-// import 'ProjectOptions.dart' as options; // added to .gitignore for security reasons
+import 'ProjectOptions.dart' as options; // added to .gitignore for security reasons
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   ThemeDecider.fetchTheme();
   var _initialization = Firebase.initializeApp(
-    options: FirebaseOptions()
+    options: FirebaseOptions(
+      messagingSenderId: options.messagingSenderId,
+      appId: options.appId,
+      apiKey: options.apiKey,
+      projectId: options.projectId,
+      databaseURL: options.databaseUrl
+    )
   );
   runApp(
     MaterialApp(

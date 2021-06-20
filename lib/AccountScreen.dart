@@ -9,6 +9,7 @@ import 'package:image_picker/image_picker.dart';
 
 import 'ChangePassSuccess.dart';
 import 'CustomError.dart';
+import 'HomePage.dart';
 import 'ThemeDecider.dart';
 import 'global.dart' as global;
 
@@ -58,7 +59,7 @@ class _AccountScreenState extends State<AccountScreen> {
                     if(url!=null) {
                       global.imageLoaded = false;
                       setState(() {});
-                      await FirebaseAuth.instance.currentUser.updateProfile(photoURL: url);
+                      await FirebaseAuth.instance.currentUser.updateProfile(photoURL: url, displayName: FirebaseAuth.instance.currentUser.displayName);
                       global.imageLoaded = true;
                       setState(() {});
                     }
@@ -101,7 +102,7 @@ class _AccountScreenState extends State<AccountScreen> {
                       )
                   ),
                   onPressed: () {
-                  FirebaseAuth.instance.currentUser.updateProfile(displayName: global.displayName);
+                  FirebaseAuth.instance.currentUser.updateProfile(displayName: global.displayName, photoURL: FirebaseAuth.instance.currentUser.photoURL);
                   },
                   fillColor: ThemeDecider.decide()=='red' ? Colors.red[300] : Colors.green[300],
                 ),
@@ -118,42 +119,62 @@ class _AccountScreenState extends State<AccountScreen> {
                   ),),
                 ),
                 SizedBox(height: 30.0),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text('Password',style:TextStyle(
-                    fontSize: 15.0,
-                    fontWeight: FontWeight.w400,
-                    color: Colors.black87
-                  )),
-                ),
-                TextField(
-                  obscureText: true,
-                  decoration: InputDecoration(
-                    contentPadding: EdgeInsets.symmetric(vertical: 0.0, horizontal: 10),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.grey[400])
-                    ),
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.grey[400])
-                    )
-                  ),
-                  autocorrect: false,
-                  onChanged: (text) {
-                    global.pass = text;
-                  },
-                ),
-                SizedBox(height: 10.0,),
+                // Align(
+                //   alignment: Alignment.centerLeft,
+                //   child: Text('Password',style:TextStyle(
+                //     fontSize: 15.0,
+                //     fontWeight: FontWeight.w400,
+                //     color: Colors.black87
+                //   )),
+                // ),
+                // TextField(
+                //   obscureText: true,
+                //   decoration: InputDecoration(
+                //     contentPadding: EdgeInsets.symmetric(vertical: 0.0, horizontal: 10),
+                //     enabledBorder: OutlineInputBorder(
+                //       borderSide: BorderSide(color: Colors.grey[400])
+                //     ),
+                //     border: OutlineInputBorder(
+                //       borderSide: BorderSide(color: Colors.grey[400])
+                //     )
+                //   ),
+                //   autocorrect: false,
+                //   onChanged: (text) {
+                //     global.pass = text;
+                //   },
+                // ),
+                // SizedBox(height: 10.0,),
+                // RawMaterialButton(
+                //   child: Container(
+                //       child: Padding(
+                //         padding: const EdgeInsets.all(8.0),
+                //         child: Text('Change password',style: TextStyle(
+                //             color: Colors.white
+                //         ),),
+                //       )
+                //   ),
+                //   onPressed: () {
+                //     FirebaseAuth.instance.currentUser.updatePassword(global.pass).then((value) {
+                //       Navigator.push(context,MaterialPageRoute(builder: (context) => ChangePassSuccess()));
+                //     }).catchError((e) {
+                //       Navigator.push(context,MaterialPageRoute(builder: (context) => CustomError(e.message)));
+                //     });
+                //   },
+                //   fillColor: ThemeDecider.decide()=='red' ? Colors.red[300] : Colors.green[300],
+                // ),
+                // SizedBox(height: 10.0),
+                // Text('Note: password must be at least 6 characters',textAlign: TextAlign.center)
                 RawMaterialButton(
                   child: Container(
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: Text('Change password',style: TextStyle(
+                        child: Text('Reset password by email',style: TextStyle(
                             color: Colors.white
                         ),),
                       )
                   ),
                   onPressed: () {
-                    FirebaseAuth.instance.currentUser.updatePassword(global.pass).then((value) {
+                    FirebaseAuth.instance.sendPasswordResetEmail(email: FirebaseAuth.instance.currentUser.email).then((value) {
                       Navigator.push(context,MaterialPageRoute(builder: (context) => ChangePassSuccess()));
                     }).catchError((e) {
                       Navigator.push(context,MaterialPageRoute(builder: (context) => CustomError(e.message)));
@@ -162,7 +183,22 @@ class _AccountScreenState extends State<AccountScreen> {
                   fillColor: ThemeDecider.decide()=='red' ? Colors.red[300] : Colors.green[300],
                 ),
                 SizedBox(height: 10.0),
-                // Text('Note: password must be at least 6 characters',textAlign: TextAlign.center)
+                RawMaterialButton(
+                  child: Container(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text('Log out',style: TextStyle(
+                            color: Colors.white
+                        ),),
+                      )
+                  ),
+                  onPressed: () {
+                    FirebaseAuth.instance.signOut();
+                    Navigator.push(context,MaterialPageRoute(builder: (context) => HomePage()));
+                  },
+                  fillColor: ThemeDecider.decide()=='red' ? Colors.red[300] : Colors.green[300],
+                ),
+                SizedBox(height: 10.0),
               ],
             ),
           ),

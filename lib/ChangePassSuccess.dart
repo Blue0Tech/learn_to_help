@@ -5,7 +5,7 @@ class ChangePassSuccess extends StatelessWidget {
   Widget build(BuildContext context) {
     return AlertDialog(
       title: Text('Success'),
-      content: Text('Password successfully changed.'),
+      content: Text('Password reset email successfully sent!'),
       actions: [
         TextButton(
           child: Text('OK'),
