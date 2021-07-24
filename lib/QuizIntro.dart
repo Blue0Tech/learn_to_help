@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
@@ -105,13 +106,9 @@ class _QuizIntroState extends State<QuizIntro> {
                 }
                 if(correct==true) {
                   var ref = FirebaseDatabase.instance.reference();
-                  var currentNum = 0;
-                  ref.child('global').child(widget.id).once().then((value) {
-                    currentNum = value.value['pass_count'];
-                  });
-                  currentNum+=1;
-                  ref.child('global').child(widget.id).push().set({
-                    "pass_count" : currentNum
+                  var auth = FirebaseAuth.instance;
+                  ref.child('users').child(auth.currentUser.uid).set({
+                    widget.id : true
                   });
                 }
                 Navigator.push(context,MaterialPageRoute(builder: (context) => QuizResults(correct)));
