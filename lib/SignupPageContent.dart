@@ -17,22 +17,7 @@ class SignupPageContent extends StatelessWidget {
         SignupPageContentFields(),
         SizedBox(height: 35.0),
         SignupPageContentLogin(),
-        SizedBox(height: 35.0),
-        FadeAnimation(1.6,Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text('Already have an account?'),
-            MaterialButton(
-              onPressed: () {
-                Navigator.push(context,MaterialPageRoute(builder: (context) => LoginPage()));
-              },
-              child: Text('Login',style: TextStyle(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 18.0
-              ),),
-            )
-          ],
-        ))
+        SizedBox(height: 35.0)
       ],
     );
   }

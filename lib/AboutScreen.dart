@@ -31,7 +31,7 @@ class AboutScreen extends StatelessWidget {
                   image: AssetImage('assets/Learn2Help_logo.png'),
                 ),
                 SizedBox(height: 30.0),
-                Text('Version: 1.0.8'),
+                Text('Version: 1.0.9'),
                 SizedBox(height: 30.0),
                 InkWell(
                   child: Text('This project on github', style:TextStyle(

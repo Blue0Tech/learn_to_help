@@ -24,9 +24,6 @@ class ImportantCoursesScreen extends StatelessWidget {
             itemBuilder: (BuildContext context, index) {
               return RawMaterialButton(
                 onPressed: () {
-                  if(importantLabels[index]=='Poisoning') {
-                    Navigator.push(context,MaterialPageRoute(builder: (context)=>TutorialScreen(tutorial: tutorials[2])));
-                  }
                   if(importantLabels[index]=='Bleeding') {
                     Navigator.push(context,MaterialPageRoute(builder: (context)=>TutorialScreen(tutorial: tutorials[1])));
                   }
