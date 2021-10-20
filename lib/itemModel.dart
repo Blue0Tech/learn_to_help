@@ -315,7 +315,7 @@ final List<Tutorial> tutorials = [
     id: 'choking',
     imageUrl: 'assets/images/choking.png',
     title: 'Helping someone choking',
-    description: 'Children can choke to curiousity, and people can choke due to not being careful. This can happen to anybody, and can quickly become dangerous., so you must know what to do - acting fast is very important in this situation.',
+    description: 'Children can choke due to curiosity with toys, and people can choke due to not being careful. This can happen to anybody, and can quickly become dangerous, so you must know what to do - acting fast is very important in this situation.',
     screenshots: [
       'assets/images/choking_1.png',
       'assets/images/choking_2.png',
@@ -369,6 +369,63 @@ final List<Tutorial> tutorials = [
         3
       ]
     ]
+  ),
+  Tutorial(
+    id: 'sprains',
+    imageUrl: 'assets/images/sprainNew.png',
+    title: 'Dealing with sprains',
+    description: 'Sprains are a very common injury, and can be sustained by simply tripping over tree roots. They are, however, painful and knowing how to treat them is essential.',
+    screenshots: [
+      'assets/images/sprains_1.png',
+      'assets/images/sprains_2.png',
+      'assets/images/sprains_3.png'
+    ],
+    youtubeVideo: 'https://www.youtube.com/watch?v=yrvqNh2q6Tc',
+    paragraph: [
+      '• You\'ve probably sprained your ankle before.',
+      '• It doesn\'t always seem serious.',
+      '• However it can cause permanent damage if left untreated.',
+      '• This video will show you how to deal with sprains.'
+    ],
+    quiz: [
+      [
+        'What does the \'E\' stand for in the RICE approach?',
+        [
+          'Exercise',
+          'Elevate',
+          'Emergency'
+        ],
+        1
+      ],
+      [
+        'How should ice be applied?',
+        [
+          'Directly',
+          'Wrapped in a towel',
+          'Heated and melted into water'
+        ],
+        1
+      ],
+      [
+        'When should ice be taken off?',
+        [
+          'After 5 minutes',
+          'After 10 minutes',
+          'After 20 minutes',
+          'After half an hour'
+        ],
+        2
+      ],
+      [
+        'In which case is medical assistance needed?',
+        [
+          'If red streaks spread out of the injured area',
+          'If the injured area hurts',
+          'If the injured area swells a bit'
+        ],
+        0
+      ]
+    ]
   )
 ];
 
@@ -395,7 +452,8 @@ final List<String> all = [
   'assets/images/popular_bleeding.png',
   'assets/images/popular_cpr.png',
   'assets/images/popular_burns.png',
-  'assets/images/popular_choking.png'
+  'assets/images/popular_choking.png',
+  'assets/images/sprains.png'
 ];
 
 final List<String> popularLabels = [
@@ -415,5 +473,6 @@ final List<String> allLabels = [
   'Bleeding',
   'CPR',
   'Burns',
-  'Choking'
+  'Choking',
+  'Sprains'
 ];

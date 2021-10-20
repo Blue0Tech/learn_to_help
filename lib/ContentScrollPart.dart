@@ -38,6 +38,9 @@ class ContentScrollPart extends StatelessWidget {
                   if(labels[index]=='Choking') {
                     Navigator.push(context,MaterialPageRoute(builder: (context)=>TutorialScreen(tutorial: tutorials[4])));
                   }
+                  if(labels[index]=='Sprains') {
+                    Navigator.push(context,MaterialPageRoute(builder: (context)=>TutorialScreen(tutorial: tutorials[5])));
+                  }
                 },
                 child: Container(
                   margin: EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
