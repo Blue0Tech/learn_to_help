@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'ThemeDecider.dart';
-import 'global.dart' as global;
 
 class AboutScreen extends StatelessWidget {
   @override
@@ -9,7 +7,7 @@ class AboutScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('About us'),
-        backgroundColor: ThemeDecider.decide()=='red' ? Colors.red[300] : Colors.green[300],
+        backgroundColor: Colors.green[300],
       ),
       body: Container(
         child: Padding(
@@ -31,7 +29,7 @@ class AboutScreen extends StatelessWidget {
                   image: AssetImage('assets/Learn2Help_logo.png'),
                 ),
                 SizedBox(height: 30.0),
-                Text('Version: 1.0.10'),
+                Text('Version: 1.0.11'),
                 SizedBox(height: 30.0),
                 InkWell(
                   child: Text('This project on github', style:TextStyle(
@@ -53,9 +51,7 @@ class AboutScreen extends StatelessWidget {
                   onTap: () {
                     launch('mailto:blue0techprogramming@gmail.com');
                   },
-                ),
-                SizedBox(height: 30.0),
-                Text('More courses to be added!')
+                )
               ],
             ),
           ),

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -66,7 +65,7 @@ class HomePageContentLogin extends StatelessWidget {
                 idToken: signInAuth.idToken
               );
               try {
-                var userCred = await auth.signInWithCredential(authCred);
+                await auth.signInWithCredential(authCred);
                 Navigator.push(context, MaterialPageRoute(builder: (context) => LandingPage()));
               } catch (e) {
                 Navigator.push(context, MaterialPageRoute(builder: (context) => LoginError()));

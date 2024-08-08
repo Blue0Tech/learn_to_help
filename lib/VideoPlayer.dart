@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
-import 'ThemeDecider.dart';
-import 'global.dart' as global;
 
 class VideoPlayer extends StatelessWidget {
   final String videoUrl;
   final List<String> paragraph;
-  String title;
+  final String title;
   VideoPlayer(this.videoUrl,this.paragraph,this.title);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: ThemeDecider.decide()=='red' ? Colors.red[300] : Colors.green[300],
+        backgroundColor: Colors.green[300],
         title: Text(title)
       ),
       body: Container(

@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'FadeAnimation.dart';
-import 'LoginPage.dart';
 import 'SignupPageContentFields.dart';
 import 'SignupPageContentLogin.dart';
 import 'SignupPageContentWelcome.dart';

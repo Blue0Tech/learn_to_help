@@ -4,7 +4,7 @@ import 'HomePage.dart';
 import 'LandingPage.dart';
 
 class AppContainer extends StatelessWidget {
-  bool loggedIn;
+  final bool loggedIn;
   AppContainer(this.loggedIn);
   @override
   Widget build(BuildContext context) {

@@ -5,6 +5,7 @@ import 'AboutScreen.dart';
 import 'AccountScreen.dart';
 import 'AllCategoriesScreen.dart';
 import 'ContentScroll.dart';
+import 'CreditsScreen.dart';
 import 'FadeAnimation.dart';
 import 'HomePage.dart';
 import 'ImportantCoursesScreen.dart';
@@ -12,18 +13,13 @@ import 'ItemCover.dart';
 import 'ItemTitle.dart';
 import 'PopularCoursesScreen.dart';
 import 'ProfilePictureLandingPage.dart';
-import 'SettingsScreen.dart';
-import 'ThemeDecider.dart';
 import 'TutorialScreen.dart';
 import 'OptionsList.dart';
 import 'itemModel.dart';
-import 'global.dart' as global;
 
 class LandingPageContent extends StatelessWidget {
-  PageController pageController;
-  LandingPageContent(pageController) {
-    this.pageController = pageController;
-  }
+  final PageController pageController;
+  LandingPageContent(this.pageController);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +31,7 @@ class LandingPageContent extends StatelessWidget {
             padding: EdgeInsets.zero,
             children: [
               Container(
-                color: ThemeDecider.decide()=='red' ? Colors.red[300] : Colors.green[300],
+                color: Colors.green[300],
                 child: DrawerHeader(
                   child: Container(
                     // child: Image(
@@ -81,6 +77,13 @@ class LandingPageContent extends StatelessWidget {
                 },
               ),
               ListTile(
+                title: Text('Credits'),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.push(context,MaterialPageRoute(builder: (context) => CreditsScreen()));
+                },
+              ),
+              ListTile(
                 title: Text('Sign out'),
                 onTap: () {
                   FirebaseAuth.instance.signOut();
@@ -92,7 +95,7 @@ class LandingPageContent extends StatelessWidget {
         ),
       ),
       appBar: AppBar(
-          backgroundColor: ThemeDecider.decide()=='red' ? Colors.red[300] : Colors.green[300],
+          backgroundColor: Colors.green[300],
           elevation: 0.0,
           title: Image(
             width: 150.0,

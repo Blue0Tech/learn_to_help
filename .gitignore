@@ -41,4 +41,5 @@ app.*.symbols
 app.*.map.json
 
 # custom
-/lib/ProjectOptions.dart
+lib/ProjectOptions.dart
+android/key.properties

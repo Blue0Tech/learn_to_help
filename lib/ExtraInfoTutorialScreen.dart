@@ -4,10 +4,8 @@ import 'package:flutter/material.dart';
 
 
 class ExtraInfoTutorialScreen extends StatefulWidget {
-  String id;
-  ExtraInfoTutorialScreen(id) {
-    this.id = id;
-  }
+  final String id;
+  ExtraInfoTutorialScreen(this.id);
   @override
   _ExtraInfoTutorialScreenState createState() => _ExtraInfoTutorialScreenState(this.id);
 }
@@ -19,14 +17,12 @@ class _ExtraInfoTutorialScreenState extends State<ExtraInfoTutorialScreen> {
   bool passed;
   _ExtraInfoTutorialScreenState(id) {
     this.id = id;
-    print(id);
     this.getData();
   }
   getData() async {
     var ref = FirebaseDatabase.instance.reference().child('global').child(this.id);
     var auth = FirebaseAuth.instance;
     var passedRef = FirebaseDatabase.instance.reference().child('users').child(auth.currentUser.uid);
-    print('created reference');
     this.passed = false;
     passedRef.once().then((snapshot) {
       var hasPassed = snapshot.value[this.id];
@@ -34,16 +30,12 @@ class _ExtraInfoTutorialScreenState extends State<ExtraInfoTutorialScreen> {
       setState(() {});
     }).catchError((e) {print(e);});
     ref.once().then((snapshot) {
-      print('snapshot fetched');
       this.hits = snapshot.value['hits'];
       this.length = snapshot.value['length'];
       ref.child('hits').set(this.hits+1);
       this.hits+=1;
       setState(() {});
-      print(snapshot.value);
-    }).catchError((e) {
-      print(e);
-    });
+    }).catchError((e) {});
   }
   @override
   Widget build(BuildContext context) {

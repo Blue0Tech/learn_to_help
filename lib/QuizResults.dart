@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class QuizResults extends StatelessWidget {
-  bool result;
+  final bool result;
   QuizResults(this.result);
   @override
   Widget build(BuildContext context) {

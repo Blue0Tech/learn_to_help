@@ -4,7 +4,7 @@ import 'package:infinity_page_view/infinity_page_view.dart';
 class ScreenshotScroller extends StatelessWidget {
   final List<String> images;
   ScreenshotScroller(this.images);
-  InfinityPageController _pageController = InfinityPageController(initialPage: 1, viewportFraction: 0.85);
+  final InfinityPageController _pageController = InfinityPageController(initialPage: 1, viewportFraction: 0.85);
   @override
   Widget build(BuildContext context) {
     return Container(

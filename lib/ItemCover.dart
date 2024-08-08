@@ -3,10 +3,8 @@ import 'package:flutter/material.dart';
 import 'itemModel.dart';
 
 class ItemCover extends StatelessWidget {
-  int index = 0;
-  ItemCover(index) {
-    this.index = index;
-  }
+  final int index;
+  ItemCover(this.index);
   @override
   Widget build(BuildContext context) {
     return Center(

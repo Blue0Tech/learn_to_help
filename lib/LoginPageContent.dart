@@ -1,11 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'FadeAnimation.dart';
 import 'LoginPageContentFields.dart';
 import 'LoginPageContentLogin.dart';
 import 'LoginPageContentWelcome.dart';
-import 'SignupPage.dart';
 
 class LoginPageContent extends StatelessWidget {
   @override

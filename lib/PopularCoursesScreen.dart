@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'ThemeDecider.dart';
 import 'TutorialScreen.dart';
 import 'itemModel.dart';
-import 'global.dart' as global;
 
 class PopularCoursesScreen extends StatelessWidget {
   @override
@@ -10,7 +8,7 @@ class PopularCoursesScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Popular Courses'),
-        backgroundColor: ThemeDecider.decide()=='red' ? Colors.red[300] : Colors.green[300],
+        backgroundColor: Colors.green[300],
       ),
       body: Container(
         child: Padding(
@@ -47,7 +45,7 @@ class PopularCoursesScreen extends StatelessWidget {
                     child: Column(
                       children: [
                         Text(popularLabels[index],style: TextStyle(
-                          color: ThemeDecider.decide()=='red' ? Colors.red : Colors.green,
+                          color: Colors.green,
                           fontSize: 16.0,
                           fontWeight: FontWeight.bold
                         )),

@@ -1,12 +1,10 @@
 import 'package:clip_shadow/clip_shadow.dart';
 import 'package:flutter/material.dart';
 
-import 'ThemeDecider.dart';
 import 'clipper.dart';
-import 'global.dart' as global;
 
 class TutorialScreenImagePreview extends StatelessWidget {
-  String imageUrl;
+  final String imageUrl;
   TutorialScreenImagePreview(this.imageUrl);
   @override
   Widget build(BuildContext context) {
@@ -24,7 +22,7 @@ class TutorialScreenImagePreview extends StatelessWidget {
             )
           ],
           child: Container(
-              color: ThemeDecider.decide()=='red' ? Colors.redAccent : Colors.greenAccent,
+              color: Colors.greenAccent,
               height: 280.0,
               child: Image(
                 height: 400.0,

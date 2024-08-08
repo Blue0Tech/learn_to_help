@@ -202,10 +202,10 @@ final List<Tutorial> tutorials = [
       [
         'What should you ask someone if they have been poisoned?',
         [
-          'What, did you swallow, when did you swallow it and why did you swallow it',
-          'What did you swallow, when did you swallow it and how quickly did you swallow it',
-          'What did you swallow, when did you swallow it and how much did you swallow',
-          'What did you swallow, how quickly did you swallow it and why did you swallow it'
+          'What did you swallow, when and why?',
+          'What did you swallow, when and how quickly did you swallow it?',
+          'What did you swallow, when and how much?',
+          'What did you swallow, how quickly did you swallow it and why?'
         ],
         2
       ],
@@ -433,6 +433,7 @@ final List<String> labels = [
   'All categories',
   'Your account',
   'About us',
+  'Credits'
 ];
 
 final List<String> popular = [

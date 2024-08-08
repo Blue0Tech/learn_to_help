@@ -1,7 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
-import 'LoginPageContent.dart';
 import 'SignupPageContent.dart';
 
 class SignupPage extends StatelessWidget {
@@ -12,7 +11,11 @@ class SignupPage extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0.0,
-        brightness: Brightness.light,
+        systemOverlayStyle: SystemUiOverlayStyle(
+            systemNavigationBarIconBrightness: Brightness.light,
+            statusBarBrightness: Brightness.light,
+            statusBarIconBrightness: Brightness.light
+        ),
         backgroundColor: Colors.white,
         leading: IconButton(
             onPressed: () {

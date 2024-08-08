@@ -1,16 +1,13 @@
 import 'dart:math';
 
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 import 'ChangePassSuccess.dart';
 import 'CustomError.dart';
 import 'HomePage.dart';
-import 'ThemeDecider.dart';
 import 'global.dart' as global;
 
 class AccountScreen extends StatefulWidget {
@@ -24,7 +21,7 @@ class _AccountScreenState extends State<AccountScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Account'),
-        backgroundColor: ThemeDecider.decide()=='red' ? Colors.red[300] : Colors.green[300],
+        backgroundColor: Colors.green[300],
       ),
       body: Container(
         child: Padding(
@@ -37,7 +34,13 @@ class _AccountScreenState extends State<AccountScreen> {
                   radius: 50.0,
                   child: ClipOval(
                     child: SizedBox(
-                      child: Image.network(FirebaseAuth.instance.currentUser.photoURL),
+                      child: FadeInImage(
+                        placeholder: AssetImage('assets/empty_profile.png'),
+                        image: NetworkImage(FirebaseAuth.instance.currentUser.photoURL??"blank"), // to prevent null error being thrown
+                        imageErrorBuilder: (context, error, stackTrace) {
+                          return Image.asset('assets/empty_profile.png',scale: 1);
+                        },
+                      ),
                       width: 100.0
                     ),
                     clipBehavior: Clip.hardEdge,
@@ -59,12 +62,12 @@ class _AccountScreenState extends State<AccountScreen> {
                     if(url!=null) {
                       global.imageLoaded = false;
                       setState(() {});
-                      await FirebaseAuth.instance.currentUser.updateProfile(photoURL: url, displayName: FirebaseAuth.instance.currentUser.displayName);
+                      await FirebaseAuth.instance.currentUser.updatePhotoURL(url);
                       global.imageLoaded = true;
                       setState(() {});
                     }
                   },
-                  fillColor: ThemeDecider.decide()=='red' ? Colors.red[300] : Colors.green[300],
+                  fillColor: Colors.green[300],
                 ),
                 SizedBox(height: 30.0),
                 Align(
@@ -102,9 +105,9 @@ class _AccountScreenState extends State<AccountScreen> {
                       )
                   ),
                   onPressed: () {
-                  FirebaseAuth.instance.currentUser.updateProfile(displayName: global.displayName, photoURL: FirebaseAuth.instance.currentUser.photoURL);
+                    FirebaseAuth.instance.currentUser.updateDisplayName(global.displayName);
                   },
-                  fillColor: ThemeDecider.decide()=='red' ? Colors.red[300] : Colors.green[300],
+                  fillColor: Colors.green[300],
                 ),
                 SizedBox(height: 30.0),
                 Center(
@@ -119,51 +122,6 @@ class _AccountScreenState extends State<AccountScreen> {
                   ),),
                 ),
                 SizedBox(height: 30.0),
-                // Align(
-                //   alignment: Alignment.centerLeft,
-                //   child: Text('Password',style:TextStyle(
-                //     fontSize: 15.0,
-                //     fontWeight: FontWeight.w400,
-                //     color: Colors.black87
-                //   )),
-                // ),
-                // TextField(
-                //   obscureText: true,
-                //   decoration: InputDecoration(
-                //     contentPadding: EdgeInsets.symmetric(vertical: 0.0, horizontal: 10),
-                //     enabledBorder: OutlineInputBorder(
-                //       borderSide: BorderSide(color: Colors.grey[400])
-                //     ),
-                //     border: OutlineInputBorder(
-                //       borderSide: BorderSide(color: Colors.grey[400])
-                //     )
-                //   ),
-                //   autocorrect: false,
-                //   onChanged: (text) {
-                //     global.pass = text;
-                //   },
-                // ),
-                // SizedBox(height: 10.0,),
-                // RawMaterialButton(
-                //   child: Container(
-                //       child: Padding(
-                //         padding: const EdgeInsets.all(8.0),
-                //         child: Text('Change password',style: TextStyle(
-                //             color: Colors.white
-                //         ),),
-                //       )
-                //   ),
-                //   onPressed: () {
-                //     FirebaseAuth.instance.currentUser.updatePassword(global.pass).then((value) {
-                //       Navigator.push(context,MaterialPageRoute(builder: (context) => ChangePassSuccess()));
-                //     }).catchError((e) {
-                //       Navigator.push(context,MaterialPageRoute(builder: (context) => CustomError(e.message)));
-                //     });
-                //   },
-                //   fillColor: ThemeDecider.decide()=='red' ? Colors.red[300] : Colors.green[300],
-                // ),
-                // SizedBox(height: 10.0),
-                // Text('Note: password must be at least 6 characters',textAlign: TextAlign.center)
                 RawMaterialButton(
                   child: Container(
                       child: Padding(
@@ -180,7 +138,7 @@ class _AccountScreenState extends State<AccountScreen> {
                       Navigator.push(context,MaterialPageRoute(builder: (context) => CustomError(e.message)));
                     });
                   },
-                  fillColor: ThemeDecider.decide()=='red' ? Colors.red[300] : Colors.green[300],
+                  fillColor: Colors.green[300],
                 ),
                 SizedBox(height: 10.0),
                 RawMaterialButton(
@@ -196,7 +154,7 @@ class _AccountScreenState extends State<AccountScreen> {
                     FirebaseAuth.instance.signOut();
                     Navigator.push(context,MaterialPageRoute(builder: (context) => HomePage()));
                   },
-                  fillColor: ThemeDecider.decide()=='red' ? Colors.red[300] : Colors.green[300],
+                  fillColor: Colors.green[300],
                 ),
                 SizedBox(height: 10.0),
               ],
@@ -212,7 +170,6 @@ class _AccountScreenState extends State<AccountScreen> {
   }
 
   uploadPic() async {
-    var path = global.image.path;
     var image = global.image;
     Random random = new Random();
     var fileName = 'pfp ${random.nextInt(1000000000)}';

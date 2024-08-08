@@ -3,10 +3,8 @@ import 'package:flutter/material.dart';
 import 'itemModel.dart';
 
 class ItemTitle extends StatelessWidget {
-  int index = 0;
-  ItemTitle(int index) {
-    this.index = index;
-  }
+  final int index;
+  ItemTitle(this.index);
   @override
   Widget build(BuildContext context) {
     return Positioned(
