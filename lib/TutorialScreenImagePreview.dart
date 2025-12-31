@@ -1,4 +1,3 @@
-import 'package:clip_shadow/clip_shadow.dart';
 import 'package:flutter/material.dart';
 
 import 'clipper.dart';
@@ -11,16 +10,11 @@ class TutorialScreenImagePreview extends StatelessWidget {
     return Container(
       child: Hero(
         tag: this.imageUrl,
-        child: ClipShadow(
+        child: PhysicalShape(
           clipper: TicketClipper(0.0),
-          boxShadow: [
-            BoxShadow(
-              offset: Offset(0.0, 0.0),
-              blurRadius: 10.0,
-              spreadRadius: 10.0,
-              color: Color.fromRGBO(196, 196, 196, 1),
-            )
-          ],
+          elevation: 8,
+          color: Colors.greenAccent,
+          shadowColor: Color.fromRGBO(196, 196, 196, 1),
           child: Container(
               color: Colors.greenAccent,
               height: 280.0,

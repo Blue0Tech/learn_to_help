@@ -15,30 +15,28 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.0.11+12
+version: 1.0.12+13
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  simple_animations: ^1.3.3
-  clip_shadow: any
-  url_launcher: 6.0.0
-#  youtube_player_flutter: ^7.0.0+7
-  youtube_player_flutter: 8.0.0 # caused new warnings (the unexpected element ones) while changing compileSdkVersion to 33 caused mapping warnings before it
-  wc_flutter_share: ^0.3.0
-  infinity_page_view: ^1.0.0
-  firebase_core: ^1.2.0
-  firebase_auth: ^1.3.0
-  firebase_database: 7.0.0
-  google_sign_in: 4.5.9
-  image_picker: ^0.5.3+1
-  firebase_storage: 8.0.0
+  simple_animations: 3.0.0
+  url_launcher: 6.1.14
+  youtube_player_flutter: 9.0.0
+  share_plus: 8.0.1
+  loop_page_view: 1.1.0
+  firebase_core: 2.24.2
+  firebase_auth: 4.15.0
+  firebase_database: 10.2.0
+  google_sign_in: 6.2.1
+  image_picker: 1.0.0
+  firebase_storage: 11.5.0
   file: 6.1.4
 dependency_overrides:
-  firebase_core_platform_interface: 4.5.1
+  firebase_core_platform_interface: 5.0.0
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.0
@@ -46,7 +44,7 @@ dependency_overrides:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_launcher_icons: 0.8.1
+  flutter_launcher_icons: 0.9.0
 flutter_icons:
   android: true
   ios: true

@@ -9,14 +9,14 @@ class Tutorial {
   String id;
 
   Tutorial({
-    this.imageUrl,
-    this.title,
-    this.description,
-    this.screenshots,
-    this.youtubeVideo,
-    this.paragraph,
-    this.quiz,
-    this.id
+    required this.imageUrl,
+    required this.title,
+    required this.description,
+    required this.screenshots,
+    required this.youtubeVideo,
+    required this.paragraph,
+    required this.quiz,
+    required this.id
   });
 }
 

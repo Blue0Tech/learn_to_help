@@ -32,10 +32,10 @@ class SignupPageContentFields extends StatelessWidget {
           decoration: InputDecoration(
               contentPadding: EdgeInsets.symmetric(vertical: 0.0, horizontal: 10),
               enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.grey[400])
+                  borderSide: BorderSide(color: Colors.grey[400]!)
               ),
               border: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.grey[400])
+                  borderSide: BorderSide(color: Colors.grey[400]!)
               )
           ),
           onChanged: (value) {

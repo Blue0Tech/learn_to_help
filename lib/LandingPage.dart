@@ -9,7 +9,7 @@ class LandingPage extends StatefulWidget {
 }
 
 class LandingPageState extends State<LandingPage> {
-  PageController pageController;
+  late PageController pageController;
   @override
   void initState() {
     super.initState();

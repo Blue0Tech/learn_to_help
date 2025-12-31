@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:infinity_page_view/infinity_page_view.dart';
+import 'package:loop_page_view/loop_page_view.dart';
 
 class ScreenshotScroller extends StatelessWidget {
   final List<String> images;
   ScreenshotScroller(this.images);
-  final InfinityPageController _pageController = InfinityPageController(initialPage: 1, viewportFraction: 0.85);
+  final LoopPageController _pageController = LoopPageController(initialPage: 1, viewportFraction: 0.85);
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 180.0,
-      child: InfinityPageView(
+      child: LoopPageView.builder(
         controller: _pageController,
         scrollDirection: Axis.horizontal,
         itemCount: images.length,

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wc_flutter_share/wc_flutter_share.dart';
+import 'package:share_plus/share_plus.dart';
 
 import 'TutorialScreenImagePreview.dart';
 import 'ExtraInfoTutorialScreen.dart';
@@ -10,7 +10,7 @@ import 'itemModel.dart';
 
 class TutorialScreen extends StatefulWidget {
   final Tutorial tutorial;
-  TutorialScreen({this.tutorial});
+  TutorialScreen({required this.tutorial});
   @override
   TutorialScreenState createState() => TutorialScreenState();
 }
@@ -43,11 +43,9 @@ class TutorialScreenState extends State<TutorialScreen> {
                 right: 40.0,
                 child: IconButton(
                   onPressed: () {
-                    WcFlutterShare.share(
-                      sharePopupTitle: 'Share',
-                      subject: 'Share Learn2Help',
-                      text: 'https://github.com/Blue0Tech/learn_to_help',
-                      mimeType: 'text/plain'
+                    Share.share(
+                      'https://github.com/Blue0Tech/learn_to_help',
+                      subject: 'Share Learn2Help'
                     );
                   },
                   icon: Icon(Icons.share),

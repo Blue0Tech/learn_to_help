@@ -11,10 +11,10 @@ class ExtraInfoTutorialScreen extends StatefulWidget {
 }
 
 class _ExtraInfoTutorialScreenState extends State<ExtraInfoTutorialScreen> {
-  String id;
-  int hits;
-  int length;
-  bool passed;
+  String id = "";
+  int hits = 0;
+  int length = 0;
+  bool passed = false;
   _ExtraInfoTutorialScreenState(id) {
     this.id = id;
     this.getData();
@@ -22,16 +22,16 @@ class _ExtraInfoTutorialScreenState extends State<ExtraInfoTutorialScreen> {
   getData() async {
     var ref = FirebaseDatabase.instance.reference().child('global').child(this.id);
     var auth = FirebaseAuth.instance;
-    var passedRef = FirebaseDatabase.instance.reference().child('users').child(auth.currentUser.uid);
+    var passedRef = FirebaseDatabase.instance.reference().child('users').child((auth.currentUser!!).uid!!);
     this.passed = false;
     passedRef.once().then((snapshot) {
-      var hasPassed = snapshot.value[this.id];
+      var hasPassed = (snapshot.snapshot.value as Map<dynamic, dynamic>)[this.id];
       if(hasPassed!=null) this.passed = true;
       setState(() {});
     }).catchError((e) {print(e);});
     ref.once().then((snapshot) {
-      this.hits = snapshot.value['hits'];
-      this.length = snapshot.value['length'];
+      this.hits = (snapshot.snapshot.value as Map<dynamic, dynamic>)['hits'];
+      this.length = (snapshot.snapshot.value as Map<dynamic, dynamic>)['length'];
       ref.child('hits').set(this.hits+1);
       this.hits+=1;
       setState(() {});

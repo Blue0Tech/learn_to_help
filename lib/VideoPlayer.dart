@@ -18,7 +18,7 @@ class VideoPlayer extends StatelessWidget {
           children: [
             YoutubePlayer(
               controller: YoutubePlayerController(
-                initialVideoId: YoutubePlayer.convertUrlToId(videoUrl),
+                initialVideoId: YoutubePlayer.convertUrlToId(videoUrl)!,
                 flags: YoutubePlayerFlags(
                   hideControls: false,
                   controlsVisibleAtStart: false,

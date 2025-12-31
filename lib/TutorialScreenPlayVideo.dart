@@ -23,7 +23,7 @@ class TutorialScreenPlayVideo extends StatelessWidget {
             var ref = FirebaseDatabase.instance.reference();
             var currentNum = 0;
             ref.child('global').child(id).once().then((value) {
-              currentNum = value.value['hits'];
+              currentNum = (value.snapshot.value as Map<dynamic, dynamic>)['hits'];
             });
             currentNum+=1;
             ref.child('global').child(id).push().set({

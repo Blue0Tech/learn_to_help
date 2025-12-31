@@ -36,7 +36,7 @@ class _AccountScreenState extends State<AccountScreen> {
                     child: SizedBox(
                       child: FadeInImage(
                         placeholder: AssetImage('assets/empty_profile.png'),
-                        image: NetworkImage(FirebaseAuth.instance.currentUser.photoURL??"blank"), // to prevent null error being thrown
+                        image: NetworkImage(FirebaseAuth.instance.currentUser?.photoURL??"blank"), // to prevent null error being thrown
                         imageErrorBuilder: (context, error, stackTrace) {
                           return Image.asset('assets/empty_profile.png',scale: 1);
                         },
@@ -62,7 +62,7 @@ class _AccountScreenState extends State<AccountScreen> {
                     if(url!=null) {
                       global.imageLoaded = false;
                       setState(() {});
-                      await FirebaseAuth.instance.currentUser.updatePhotoURL(url);
+                      await FirebaseAuth.instance.currentUser?.updatePhotoURL(url);
                       global.imageLoaded = true;
                       setState(() {});
                     }
@@ -79,14 +79,14 @@ class _AccountScreenState extends State<AccountScreen> {
                   )),
                 ),
                 TextField(
-                  controller: TextEditingController()..text = FirebaseAuth.instance.currentUser.displayName,
+                  controller: TextEditingController()..text = FirebaseAuth.instance.currentUser?.displayName ?? "",
                   decoration: InputDecoration(
                     contentPadding: EdgeInsets.symmetric(vertical: 0.0, horizontal: 10),
                     enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.grey[400])
+                      borderSide: BorderSide(color: Colors.grey[400]!!)
                     ),
                     border: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.grey[400])
+                      borderSide: BorderSide(color: Colors.grey[400]!!)
                     )
                   ),
                   autocorrect: false,
@@ -105,7 +105,7 @@ class _AccountScreenState extends State<AccountScreen> {
                       )
                   ),
                   onPressed: () {
-                    FirebaseAuth.instance.currentUser.updateDisplayName(global.displayName);
+                    FirebaseAuth.instance.currentUser?.updateDisplayName(global.displayName);
                   },
                   fillColor: Colors.green[300],
                 ),
@@ -117,7 +117,7 @@ class _AccountScreenState extends State<AccountScreen> {
                 ),
                 SizedBox(height: 10.0),
                 Center(
-                  child: Text(FirebaseAuth.instance.currentUser.email,style: TextStyle(
+                  child: Text(FirebaseAuth.instance.currentUser?.email??"",style: TextStyle(
                     fontWeight: FontWeight.bold
                   ),),
                 ),
@@ -132,7 +132,7 @@ class _AccountScreenState extends State<AccountScreen> {
                       )
                   ),
                   onPressed: () {
-                    FirebaseAuth.instance.sendPasswordResetEmail(email: FirebaseAuth.instance.currentUser.email).then((value) {
+                    FirebaseAuth.instance.sendPasswordResetEmail(email: (FirebaseAuth.instance.currentUser!!).email!!).then((value) {
                       Navigator.push(context,MaterialPageRoute(builder: (context) => ChangePassSuccess()));
                     }).catchError((e) {
                       Navigator.push(context,MaterialPageRoute(builder: (context) => CustomError(e.message)));
@@ -166,7 +166,8 @@ class _AccountScreenState extends State<AccountScreen> {
   }
 
   getImage() async {
-    global.image = await ImagePicker.pickImage(source: ImageSource.gallery);
+    final picker = ImagePicker();
+    global.image = await picker.pickImage(source: ImageSource.gallery);
   }
 
   uploadPic() async {

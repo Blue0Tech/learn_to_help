@@ -15,9 +15,9 @@ class QuizIntro extends StatefulWidget {
 }
 
 class _QuizIntroState extends State<QuizIntro> {
-  List quiz;
-  List answers;
-  String id;
+  late List quiz;
+  late List answers;
+  late String id;
   _QuizIntroState(quiz,id) {
     this.quiz = quiz;
     this.answers = List.filled(quiz.length,null,growable: false);
@@ -108,7 +108,7 @@ class _QuizIntroState extends State<QuizIntro> {
                 if(correct==true) {
                   var ref = FirebaseDatabase.instance.reference();
                   var auth = FirebaseAuth.instance;
-                  ref.child('users').child(auth.currentUser.uid).set({
+                  ref.child('users').child((auth.currentUser!).uid).set({
                     id : true
                   });
                 }

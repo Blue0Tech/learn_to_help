@@ -42,7 +42,7 @@ class LandingPageContent extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 30.0),
-              Center(child: Text(FirebaseAuth.instance.currentUser.displayName ?? '',style: TextStyle(
+              Center(child: Text(FirebaseAuth.instance.currentUser?.displayName ?? '',style: TextStyle(
                 fontWeight: FontWeight.bold,
                 color: Colors.black,
                 fontSize: 20.0
@@ -138,10 +138,10 @@ class LandingPageContent extends StatelessWidget {
   tutorialSelector(var context,int index) {
     return AnimatedBuilder(
         animation: pageController,
-        builder: (BuildContext context, Widget widget) {
+        builder: (BuildContext context, Widget? widget) {
           double value = 1;
           if(pageController.position.haveDimensions) {
-            value = pageController.page - index;
+            value = pageController.page! - index;
             value = (1-(value.abs()*0.3)+0.06).clamp(0.0, 1.0);
           }
           return Center(

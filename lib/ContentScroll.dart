@@ -9,7 +9,7 @@ class ContentScroll extends StatelessWidget {
   final double imageWidth;
   final List<String> labels;
   final newScreen;
-  ContentScroll({this.images,this.title,this.imageHeight,this.imageWidth,this.labels,this.newScreen});
+  ContentScroll({required this.images,required this.title,required this.imageHeight,required this.imageWidth,required this.labels,this.newScreen});
   @override
   Widget build(BuildContext context) {
     return Column(
