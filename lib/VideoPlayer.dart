@@ -23,7 +23,8 @@ class VideoPlayer extends StatelessWidget {
                   hideControls: false,
                   controlsVisibleAtStart: false,
                   autoPlay: true,
-                  mute: false
+                  mute: false,
+                  showLiveFullscreenButton: false
                 )
               ),
               showVideoProgressIndicator: true,
