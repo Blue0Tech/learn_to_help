@@ -8,49 +8,54 @@ class VideoPlayer extends StatelessWidget {
   VideoPlayer(this.videoUrl,this.paragraph,this.title);
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.green[300],
-        title: Text(title)
-      ),
-      body: Container(
-        child: Column(
-          children: [
-            YoutubePlayer(
-              controller: YoutubePlayerController(
-                initialVideoId: YoutubePlayer.convertUrlToId(videoUrl)!,
-                flags: YoutubePlayerFlags(
-                  hideControls: false,
-                  controlsVisibleAtStart: false,
-                  autoPlay: true,
-                  mute: false,
-                  showLiveFullscreenButton: false
-                )
-              ),
-              showVideoProgressIndicator: true,
-            ),
-            Container(
-              height: 400.0,
-              margin: EdgeInsets.all(8.0),
-              child: ListView.builder(
-                itemCount: paragraph.length,
-                itemBuilder: (context, index) {
-                  return Column(
-                    children: [
-                      Text(paragraph[index],style: TextStyle(
-                        fontSize: 20.0,
-                        color: Colors.black54,
-                        fontWeight: FontWeight.bold
-                      )),
-                      SizedBox(height: 20.0)
-                    ],
-                  );
-                },
-              ),
+    return YoutubePlayerBuilder(
+      player: YoutubePlayer(
+        controller: YoutubePlayerController(
+            initialVideoId: YoutubePlayer.convertUrlToId(videoUrl)!,
+            flags: YoutubePlayerFlags(
+                hideControls: false,
+                controlsVisibleAtStart: false,
+                autoPlay: true,
+                mute: false,
+                showLiveFullscreenButton: false
             )
-          ],
         ),
+        showVideoProgressIndicator: true,
       ),
+      builder: (ytCtx, player) {
+        return Scaffold(
+          appBar: AppBar(
+              backgroundColor: Colors.green[300],
+              title: Text(title)
+          ),
+          body: Container(
+            child: Column(
+              children: [
+                player,
+                Container(
+                  height: 400.0,
+                  margin: EdgeInsets.all(8.0),
+                  child: ListView.builder(
+                    itemCount: paragraph.length,
+                    itemBuilder: (context, index) {
+                      return Column(
+                        children: [
+                          Text(paragraph[index],style: TextStyle(
+                              fontSize: 20.0,
+                              color: Colors.black54,
+                              fontWeight: FontWeight.bold
+                          )),
+                          SizedBox(height: 20.0)
+                        ],
+                      );
+                    },
+                  ),
+                )
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 }
